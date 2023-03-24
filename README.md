@@ -1,10 +1,10 @@
 Demographic microsimulations in R using SOCSIM: Modelling population and
 kinship dynamics
 ================
-Workshop coordinator: Diego Alburez-Gutierrez (MPIDR)
-PAA2023 Member Initiated Meeting
+A Member Initiated Meeting at the 2023 Meeting of the Population
+Association of America (PAA); New Orleans, Apr 12, 2023
 
-- <a href="#1-preamble" id="toc-1-preamble">1. Preamble</a>
+- <a href="#1-setup" id="toc-1-setup">1. Setup</a>
 - <a
   href="#2-running-a-simulation-and-retrieveing-the-input-demographic-rates"
   id="toc-2-running-a-simulation-and-retrieveing-the-input-demographic-rates">2.
@@ -15,14 +15,21 @@ PAA2023 Member Initiated Meeting
   What can you do with simulation output? Example: estimates of
   bereavement</a>
 
-# 1. Preamble
+# 1. Setup
+
+We recommend that you go through point 1 of this tutorial **before** the
+start of the workshop. If you have any questions/difficulties, please
+get in touch with the workshop coordinator (Diego Alburez).
+
+<img src="logo.png" align="right" width="200" />
 
 ## 1.1. Installation
 
-Install the [development version from
-GitHub](https://github.com/MPIDR/rsocsim). We made changes to the
-`rsocsim` package ahead of this workshop If you had already installed
-the package, please uninstall it and and install it again.
+Install the development version of `rsocsim` from GitHub
+(<https://github.com/MPIDR/rsocsim>). We may have made changes to the
+`rsocsim` package ahead of this workshop. To be on the safe side, if you
+had already installed the package, please uninstall it and and install
+it again.
 
 ``` r
 # remove.packages("rsocsim")
@@ -58,7 +65,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_9241"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_867"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -103,18 +110,18 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.6 ti2: 0.016000 1.1512
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.9 ti2: 0.024000 1.5860
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.3 ti2: 0.014000 0.8616
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.7 ti2: 0.017000 0.9947
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 2.1 ti2: 0.024000 1.4037
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.6 ti2: 0.017000 1.0625
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 3.1 ti2: 0.025000 1.6513
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.6 ti2: 0.017000 1.2115
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 4.0 ti2: 0.023000 1.6993
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 4.4 ti2: 0.018000 1.3943
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.8 ti2: 0.017000 1.4399
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 5.1 ti2: 0.016000 1.4918
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.6 ti2: 0.013000 0.9354
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.8 ti2: 0.023000 1.5199
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.2 ti2: 0.013000 0.8001
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.5 ti2: 0.015000 0.8777
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.9 ti2: 0.023000 1.3452
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.3 ti2: 0.022000 1.3750
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 2.6 ti2: 0.019000 1.2550
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.1 ti2: 0.014000 0.9977
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 3.4 ti2: 0.020000 1.4776
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 3.8 ti2: 0.017000 1.3168
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.1 ti2: 0.014000 1.1858
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 4.4 ti2: 0.020000 1.8647
     ## 
     ## 
     ## Socsim Main Done
@@ -123,9 +130,9 @@ rsocsim::socsim(folder,supfile,seed)
 
     ## [1] 1
 
-You should see a long output in the console, at the end of which there
-is a population pyramid and the message “Socsim done”. Ignore the wo
-warning messages (they are expected).
+You should see a long output in the console, at the end of which is the
+message “Socsim done”. Ignore the two warning messages (‘can’t open
+transition history file. Hope that’s OK’). They are expected.
 
 For more details on the package, the SOCSIM simulator, its history and
 applications, see `rsocsim`’s website:
@@ -137,6 +144,7 @@ Let’s load the packages we will need for this workshop:
 
 ``` r
 library(rsocsim)
+# install.packages("tidyverse")
 library(tidyverse)
 ```
 

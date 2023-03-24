@@ -1,7 +1,6 @@
 ---
 title: "Demographic microsimulations in R using SOCSIM: Modelling population and kinship dynamics"
-author: "Workshop coordinator: Diego Alburez-Gutierrez (MPIDR)"
-date: "PAA2023 Member Initiated Meeting"
+date: "A Member Initiated Meeting at the 2023 Meeting of the Population Association of America (PAA); New Orleans, Apr 12, 2023"
 output:
   github_document:
     pandoc_args: --webtex
@@ -10,13 +9,15 @@ output:
 bibliography: kinship.bib
 ---
 
+# 1. Setup
 
+We recommend that you go through point 1 of this tutorial **before** the start of the workshop. If you have any questions/difficulties, please get in touch with the workshop coordinator (Diego Alburez).
 
-# 1. Preamble
+<img src="logo.png" align="right" width="200" />
 
 ## 1.1. Installation
 
-Install the [development version from GitHub](https://github.com/MPIDR/rsocsim). We made changes to the `rsocsim` package ahead of this workshop If you had already installed the package, please uninstall it and and install it again.
+Install the development version of `rsocsim` from GitHub (https://github.com/MPIDR/rsocsim). We may have made changes to the `rsocsim` package ahead of this workshop. To be on the safe side, if you had already installed the package, please uninstall it and and install it again.
 
 ```{r, eval=FALSE}
 # remove.packages("rsocsim")
