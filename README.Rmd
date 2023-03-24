@@ -1,0 +1,76 @@
+---
+title: "Demographic microsimulations in R using SOCSIM: Modelling population and kinship dynamics"
+author: "Workshop coordinator: Diego Alburez-Gutierrez (MPIDR)"
+date: "PAA2023 Member Initiated Meeting"
+output:
+  github_document:
+    pandoc_args: --webtex
+    toc: true
+    toc_depth: 1
+bibliography: kinship.bib
+---
+
+
+
+# 1. Preamble
+
+## 1.1. Installation
+
+Install the [development version from GitHub](https://github.com/MPIDR/rsocsim). We made changes to the `rsocsim` package ahead of this workshop If you had already installed the package, please uninstall it and and install it again.
+
+```{r, eval=FALSE}
+# remove.packages("rsocsim")
+# install.packages("devtools")
+devtools::install_github("MPIDR/rsocsim")
+```
+
+Let's see if everything is working fine. `rsocsim` has a simple built-in simulation that you can run to see if the package was installed correctly. For now, let's run the code without focusing on the technical details: 
+
+```{r, eval=TRUE}
+library(rsocsim)
+
+library("rsocsim")
+
+# create a new folder for all the files related to a simulation.
+# this will be in your home- or user-directory:
+folder = rsocsim::create_simulation_folder()
+
+# create a new supplement-file. Supplement-files tell socsim what
+# to simulate. create_sup_file will create a very basic supplement filee
+# and it copies some rate-files that will also be needed into the 
+# simulation folder:
+supfile = rsocsim::create_sup_file(folder)
+
+# Choose a random-number seed:
+seed = 300
+
+# Start the simulation:
+rsocsim::socsim(folder,supfile,seed)
+
+```
+
+You should see a long output in the console, at the end of which is the message "Socsim done". Ignore the two warning messages ('can't open transition history file. Hope that's OK'). They are expected.
+
+For more details on the package, the SOCSIM simulator, its history and applications, see `rsocsim`'s website: https://mpidr.github.io/rsocsim/.
+
+## 1.2. Other packages
+
+Let's load the packages we will need for this workshop: 
+
+```{r, warning=F, message=FALSE}
+library(rsocsim)
+# install.packages("tidyverse")
+library(tidyverse)
+```
+
+# 2. Running a simulation and retrieveing the input demographic rates
+
+> Instructor: Liliana P. Calderón, https://twitter.com/lp_calderonb
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+# 3. What can you do with simulation output? Example: estimates of bereavement
+
+> Instructor: Mallika Snyder, https://twitter.com/mallika_snyder
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
