@@ -1,0 +1,470 @@
+***************************************************************************
+* Supervisory file for SOCSIM microsimulation for the USA 1933-2020
+* Created on 28.03.2023
+***************************************************************************
+* This simulation uses as input age-specific data retrieved from 
+* the Human Fertility Database (HFD) and the Human Mortality Database (HMD) 
+* converted into SOCSIM format.
+***************************************************************************
+segments  89
+input_file presim
+execute "touch presim.omar"
+
+bint 12
+hetfert 1
+marriage_queues 1
+marriage_eval distribution
+marriage_after_childbirth 1 
+random_father 1
+
+***********************************************************************
+* Pre-simulation (100 years) to get stable population at 31-12-1932
+* Using HFD and HMD rates for 1933
+
+duration 1200
+include rates/USAfert1933
+include rates/USAmort1933
+run
+
+* First simulation with actual mortality rates. 
+* Give population at 31-12-1933
+
+duration 12
+include rates/USAfert1933
+include rates/USAmort1933
+run
+
+duration 12
+include rates/USAfert1934
+include rates/USAmort1934
+run
+
+duration 12
+include rates/USAfert1935
+include rates/USAmort1935
+run
+
+duration 12
+include rates/USAfert1936
+include rates/USAmort1936
+run
+
+duration 12
+include rates/USAfert1937
+include rates/USAmort1937
+run
+
+duration 12
+include rates/USAfert1938
+include rates/USAmort1938
+run
+
+duration 12
+include rates/USAfert1939
+include rates/USAmort1939
+run
+
+duration 12
+include rates/USAfert1940
+include rates/USAmort1940
+run
+
+duration 12
+include rates/USAfert1941
+include rates/USAmort1941
+run
+
+duration 12
+include rates/USAfert1942
+include rates/USAmort1942
+run
+
+duration 12
+include rates/USAfert1943
+include rates/USAmort1943
+run
+
+duration 12
+include rates/USAfert1944
+include rates/USAmort1944
+run
+
+duration 12
+include rates/USAfert1945
+include rates/USAmort1945
+run
+
+duration 12
+include rates/USAfert1946
+include rates/USAmort1946
+run
+
+duration 12
+include rates/USAfert1947
+include rates/USAmort1947
+run
+
+duration 12
+include rates/USAfert1948
+include rates/USAmort1948
+run
+
+duration 12
+include rates/USAfert1949
+include rates/USAmort1949
+run
+
+duration 12
+include rates/USAfert1950
+include rates/USAmort1950
+run
+
+duration 12
+include rates/USAfert1951
+include rates/USAmort1951
+run
+
+duration 12
+include rates/USAfert1952
+include rates/USAmort1952
+run
+
+duration 12
+include rates/USAfert1953
+include rates/USAmort1953
+run
+
+duration 12
+include rates/USAfert1954
+include rates/USAmort1954
+run
+
+duration 12
+include rates/USAfert1955
+include rates/USAmort1955
+run
+
+duration 12
+include rates/USAfert1956
+include rates/USAmort1956
+run
+
+duration 12
+include rates/USAfert1957
+include rates/USAmort1957
+run
+
+duration 12
+include rates/USAfert1958
+include rates/USAmort1958
+run
+
+duration 12
+include rates/USAfert1959
+include rates/USAmort1959
+run
+
+duration 12
+include rates/USAfert1960
+include rates/USAmort1960
+run
+
+duration 12
+include rates/USAfert1961
+include rates/USAmort1961
+run
+
+duration 12
+include rates/USAfert1962
+include rates/USAmort1962
+run
+
+duration 12
+include rates/USAfert1963
+include rates/USAmort1963
+run
+
+duration 12
+include rates/USAfert1964
+include rates/USAmort1964
+run
+
+duration 12
+include rates/USAfert1965
+include rates/USAmort1965
+run
+
+duration 12
+include rates/USAfert1966
+include rates/USAmort1966
+run
+
+duration 12
+include rates/USAfert1967
+include rates/USAmort1967
+run
+
+duration 12
+include rates/USAfert1968
+include rates/USAmort1968
+run
+
+duration 12
+include rates/USAfert1969
+include rates/USAmort1969
+run
+
+duration 12
+include rates/USAfert1970
+include rates/USAmort1970
+run
+
+duration 12
+include rates/USAfert1971
+include rates/USAmort1971
+run
+
+duration 12
+include rates/USAfert1972
+include rates/USAmort1972
+run
+
+duration 12
+include rates/USAfert1973
+include rates/USAmort1973
+run
+
+duration 12
+include rates/USAfert1974
+include rates/USAmort1974
+run
+
+duration 12
+include rates/USAfert1975
+include rates/USAmort1975
+run
+
+duration 12
+include rates/USAfert1976
+include rates/USAmort1976
+run
+
+duration 12
+include rates/USAfert1977
+include rates/USAmort1977
+run
+
+duration 12
+include rates/USAfert1978
+include rates/USAmort1978
+run
+
+duration 12
+include rates/USAfert1979
+include rates/USAmort1979
+run
+
+duration 12
+include rates/USAfert1980
+include rates/USAmort1980
+run
+
+duration 12
+include rates/USAfert1981
+include rates/USAmort1981
+run
+
+duration 12
+include rates/USAfert1982
+include rates/USAmort1982
+run
+
+duration 12
+include rates/USAfert1983
+include rates/USAmort1983
+run
+
+duration 12
+include rates/USAfert1984
+include rates/USAmort1984
+run
+
+duration 12
+include rates/USAfert1985
+include rates/USAmort1985
+run
+
+duration 12
+include rates/USAfert1986
+include rates/USAmort1986
+run
+
+duration 12
+include rates/USAfert1987
+include rates/USAmort1987
+run
+
+duration 12
+include rates/USAfert1988
+include rates/USAmort1988
+run
+
+duration 12
+include rates/USAfert1989
+include rates/USAmort1989
+run
+
+duration 12
+include rates/USAfert1990
+include rates/USAmort1990
+run
+
+duration 12
+include rates/USAfert1991
+include rates/USAmort1991
+run
+
+duration 12
+include rates/USAfert1992
+include rates/USAmort1992
+run
+
+duration 12
+include rates/USAfert1993
+include rates/USAmort1993
+run
+
+duration 12
+include rates/USAfert1994
+include rates/USAmort1994
+run
+
+duration 12
+include rates/USAfert1995
+include rates/USAmort1995
+run
+
+duration 12
+include rates/USAfert1996
+include rates/USAmort1996
+run
+
+duration 12
+include rates/USAfert1997
+include rates/USAmort1997
+run
+
+duration 12
+include rates/USAfert1998
+include rates/USAmort1998
+run
+
+duration 12
+include rates/USAfert1999
+include rates/USAmort1999
+run
+
+duration 12
+include rates/USAfert2000
+include rates/USAmort2000
+run
+
+duration 12
+include rates/USAfert2001
+include rates/USAmort2001
+run
+
+duration 12
+include rates/USAfert2002
+include rates/USAmort2002
+run
+
+duration 12
+include rates/USAfert2003
+include rates/USAmort2003
+run
+
+duration 12
+include rates/USAfert2004
+include rates/USAmort2004
+run
+
+duration 12
+include rates/USAfert2005
+include rates/USAmort2005
+run
+
+duration 12
+include rates/USAfert2006
+include rates/USAmort2006
+run
+
+duration 12
+include rates/USAfert2007
+include rates/USAmort2007
+run
+
+duration 12
+include rates/USAfert2008
+include rates/USAmort2008
+run
+
+duration 12
+include rates/USAfert2009
+include rates/USAmort2009
+run
+
+duration 12
+include rates/USAfert2010
+include rates/USAmort2010
+run
+
+duration 12
+include rates/USAfert2011
+include rates/USAmort2011
+run
+
+duration 12
+include rates/USAfert2012
+include rates/USAmort2012
+run
+
+duration 12
+include rates/USAfert2013
+include rates/USAmort2013
+run
+
+duration 12
+include rates/USAfert2014
+include rates/USAmort2014
+run
+
+duration 12
+include rates/USAfert2015
+include rates/USAmort2015
+run
+
+duration 12
+include rates/USAfert2016
+include rates/USAmort2016
+run
+
+duration 12
+include rates/USAfert2017
+include rates/USAmort2017
+run
+
+duration 12
+include rates/USAfert2018
+include rates/USAmort2018
+run
+
+duration 12
+include rates/USAfert2019
+include rates/USAmort2019
+run
+
+duration 12
+include rates/USAfert2020
+include rates/USAmort2020
+run
