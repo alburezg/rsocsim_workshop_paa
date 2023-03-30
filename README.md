@@ -4,11 +4,11 @@ kinship dynamics
 A Member Initiated Meeting at the 2023 Meeting of the Population
 Association of America (PAA); New Orleans, Apr 12, 2023
 
-- <a href="#0-setup" id="toc-0-setup">0. Setup</a>
+- <a href="#1-setup" id="toc-1-setup">1. Setup</a>
 - <a
-  href="#2-running-a-simulation-and-retrieveing-the-input-demographic-rates"
-  id="toc-2-running-a-simulation-and-retrieveing-the-input-demographic-rates">2.
-  Running a simulation and retrieveing the input demographic rates</a>
+  href="#2-running-a-simulation-and-retrieving-the-input-demographic-rates"
+  id="toc-2-running-a-simulation-and-retrieving-the-input-demographic-rates">2.
+  Running a simulation and retrieving the input demographic rates</a>
 - <a
   href="#3-what-can-you-do-with-simulation-output-example-estimates-of-bereavement"
   id="toc-3-what-can-you-do-with-simulation-output-example-estimates-of-bereavement">3.
@@ -64,7 +64,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_225"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_4364"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -102,17 +102,17 @@ rsocsim::socsim(folder,supfile,seed)
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
     ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.006000 0.4317
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.4 ti2: 0.010000 0.6608
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.6 ti2: 0.005000 0.3077
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.8 ti2: 0.007000 0.4096
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.5 ti2: 0.010000 0.6608
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.6 ti2: 0.008000 0.4923
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.9 ti2: 0.009000 0.5266
     ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.0 ti2: 0.007000 0.4094
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.2 ti2: 0.009000 0.5625
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.2 ti2: 0.010000 0.6250
     ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.4 ti2: 0.012000 0.7926
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.6 ti2: 0.005000 0.3563
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.7 ti2: 0.015000 1.1082
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.9 ti2: 0.008000 0.6197
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.1 ti2: 0.007000 0.5929
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.2 ti2: 0.011000 1.0256
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.6 ti2: 0.006000 0.4276
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.7 ti2: 0.011000 0.8127
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.9 ti2: 0.010000 0.7746
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.1 ti2: 0.006000 0.5082
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.3 ti2: 0.014000 1.3053
     ## 
     ## 
     ## Socsim Main Done
@@ -137,11 +137,14 @@ Let’s load the packages we will need for this workshop:
 library(rsocsim)
 # install.packages("tidyverse")
 library(tidyverse) #For data wrangling
+# install.packages("ggh4x")
+library(ggh4x) #for extendd facet plotting
 ```
 
-# 2. Running a simulation and retrieveing the input demographic rates
+# 2. Running a simulation and retrieving the input demographic rates
 
-> Instructor: Liliana P. Calderón, <https://twitter.com/lp_calderonb>
+> Instructor: Liliana P. Calderón-Bernal,
+> <https://twitter.com/lp_calderonb>
 
 ## 2.1. The simulation: supervisory and rate files
 
@@ -415,6 +418,8 @@ bind_rows(asfr_sim %>%
   ggplot(aes(x = age, y = socsim, group = year, colour = year)) +
   geom_line(linewidth = 1) +
   facet_wrap(. ~ rate, scales = "free") + 
+  facetted_pos_scales(y = list(ASFR = scale_y_continuous(),
+                               ASMR =  scale_y_continuous(trans = "log10"))) +
   theme_bw() +
   scale_x_discrete(guide = guide_axis(angle = 90)) +
   labs(title = "Age-Specific Fertility and Mortality Rates for Women in the USA \n retrieved from a SOCSIM microsimulation, 1933-2020",
@@ -548,6 +553,8 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
   facet_wrap(. ~ Rate, scales = "free") + 
   geom_line(aes(colour = year, linetype = Source), linewidth = 1)+
   scale_linetype_manual(values = c("HFD" = "solid", "HMD" = "solid","SOCSIM" = "11")) +
+  facetted_pos_scales(y = list(ASFR = scale_y_continuous(),
+                               ASMR =  scale_y_continuous(trans = "log10")))+
   scale_x_discrete(guide = guide_axis(angle = 90)) +
   labs(title = "Age-Specific Fertility and Mortality rates in the USA (1933-2020) \n retrieved from HFD, HMD and a SOCSIM simulation", 
        x = "Age") + 
