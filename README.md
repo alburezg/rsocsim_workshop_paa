@@ -16,7 +16,7 @@ Association of America (PAA); New Orleans, Apr 12, 2023
   bereavement</a>
 - <a href="#references" id="toc-references">References</a>
 
-# 0. Setup
+# 1. Setup
 
 We recommend that you go through point 1 of this tutorial **before** the
 start of the workshop. If you have any questions/difficulties, please
