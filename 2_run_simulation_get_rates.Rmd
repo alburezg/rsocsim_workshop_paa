@@ -36,9 +36,7 @@ library(viridis)
 
 ## The simulation: supervisory and rate files
 
-To provide an example of `rsocsim` usage, we will run a SOCSIM microsimulation for the United States of America (USA) for the period 1933-2020. This microsimulation uses as input: age-specific fertility rates by calendar year and year age downloaded from the [Human Fertility Database (HFD)](https://www.humanfertility.org/), and age-specific probabilities of death by sex downloaded from the [Human Mortality Database (HMD)](https://www.mortality.org/). To run the simulation, the original [HFD](https://www.humanfertility.org/) and [HMD](https://www.mortality.org/) data must be first converted to monthly rates/probabilities and SOCSIM format as described in Socsim Oversimplified [c.f. @mason2016socsim for details]. The rates corresponding to each year are specified in the supervisory file `socsim_USA.sup`, provided in this repository, which will be used to run the simulation.  
-
-The first segment of the simulation runs for 100 years (1200 months) to produce a stable age structure, based on HFD rates and HMD probabilities for 1933. Each of the following segments runs for one year (12 months) with the corresponding fertility and mortality data. 
+To provide an example of `rsocsim` usage, we will run a SOCSIM microsimulation for the United States of America (USA) over the period 1933-2020. This microsimulation uses as input: age-specific fertility rates by calendar year and year of age downloaded from the [Human Fertility Database (HFD)](https://www.humanfertility.org/), and age-specific probabilities of death by sex downloaded from the [Human Mortality Database (HMD)](https://www.mortality.org/). To run the simulation, the original [HFD](https://www.humanfertility.org/) and [HMD](https://www.mortality.org/) data must be first converted to monthly rates/probabilities and SOCSIM format as described in Socsim Oversimplified [c.f. @mason2016socsim for details]. The rates corresponding to each year are specified in the supervisory file `socsim_USA.sup`, provided in this repository, which will be used to run the simulation. The first segment of the simulation runs for 100 years (1200 months) to produce a stable age structure, based on HFD rates and HMD probabilities for 1933. Each of the following segments runs for one year (12 months) with the corresponding fertility and mortality files. 
 
 ---
 nocite: |
@@ -59,10 +57,11 @@ source("Functions_Input_Rates.R")
 
 ### Fertility files for SOCSIM
 
-For the input Age-Specific Female Fertility Rates, we keep the whole age range included in HFD [12-55], but limit the open-ended age intervals 12- and 55+ to one year, i.e.  [12-13) and [55-56). Additionally, SOCSIM requires a final age category with an upper bound corresponding to the maximum length of life, that we fixed to we fixed it to [56-110], to be consistent with HMD data. 
+For the input Age-Specific Female Fertility Rates, we keep the whole age range included in HFD [12-55], but limit the open-ended age intervals 12- and 55+ to one year, i.e.  [12-13) and [55-56). Additionally, SOCSIM requires a final age category with an upper bound corresponding to the maximum length of life, that we fixed to [56-110], to be consistent with HMD data.
+
 To convert the HFD annual fertility rates to 'SOCSIM' monthly fertility rates, we assume that they are constant over the year and divide them by 12 months. The are identical for all marital status, but are specified for single and married women in the rate files. Other marital status (divorced, widowed, cohabiting) follow SOCSIM's rate default rules. 
 
-To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file provided in this repository. 
+To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file USAasfrRR provided in this repository. 
 
 The function below converts HFD data to SOCSIM format following the procedure explained above. To run it, type the name of the country as used in HFD (here, "USA").
 
@@ -76,7 +75,7 @@ For the input Age-Specific Probabilities of Death, we keep the whole age range i
 
 We use the probabilities of death (qx) by sex from from  [HMD](https://www.mortality.org/) period life tables, that had been already smoothed for ages 80 and older, at which observed death rates M(x) display considerable random variation [For details, see the HMD Methods Protocol @wilmoth_methods_2021, pp. 34-36].  
 
-To convert the annual HMD probabilities to monthly 'SOCSIM' probabilities, we assume that the probability of dying is constant over the year and use the formula $1-(1-_nq_x)^{1/n}$ proposed by Kenneth Watcher [@wachter2014essential, p. 53]. For the open-ended age interval 110+, monthly probabilities are equal to 1/12. The probabilities of death are identical for all marital status of each sex, and are only specified for single women and men in the rate files. Other marital status will follow SOCSIM's rate default rules. 
+To convert the annual HMD probabilities to monthly 'SOCSIM' probabilities, we assume that the probability of dying is constant over the year and use the formula $1-(1-_nq_x)^{1/n}$ proposed by Kenneth Watcher [@wachter2014essential, p. 53]. For the open-ended age interval 110+, monthly probabilities are equal to 1/12. The probabilities of death are identical for all marital status of each sex, and are only specified for single women and single men in the rate files. Other marital status will follow SOCSIM's rate default rules. 
 
 To write the input mortality files, please download from the [HMD website](https://www.mortality.org/), the period life tables 1x1 (Age interval × Year interval) for females and males for the desired country, in our case the U.S.A. Please save them as a .txt files called ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you have problems downloading the data, you can use the files provided in this repository. 
 
@@ -127,7 +126,7 @@ write.table(presim.omar, "presim.omar", row.names = F, col.names = F)
 
 Now that we have created the input rate files and the initial population and marriage files, we can run the simulation. To use the  `socsim ` function, we need to specify the folder where the supervisory and the rate files are, the name of the supervisory file for the rates retrieved from HFD and HMD (1933-2020), and a seed number for the simulation. 
 
-```{r run_simulation, eval = FALSE}
+```{r run_simulation}
 
 # Specify the folder where the supervisory and the rate files are. 
 # If the R session is running through the project, you can use the following command. 
@@ -150,17 +149,19 @@ The simulation results are ready. We can use the `read_opop` and  `read_omar` fu
 ```{r read_opop_omar}
 
 ## Read the opop file using the read_opop function
-opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup", seed = seed, suffix = "",  fn = NULL)
+opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup", 
+                           seed = "120423", suffix = "",  fn = NULL)
 
 ## Read the omar file using the read_opop function
-omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup", seed = seed, suffix = "",  fn = NULL)
+omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup", 
+                           seed = "120423", suffix = "",  fn = NULL)
 ```
 
 
 ## Estimate age-specific rates from the SOCSIM microsimulation
 
-To check the accuracy of our microsimulation for the USA, we can estimate and compare input and output age-specific rates by sex. For this purpose, we can use the `estimate_fertility_rates` and `estimate_mortality_rates` functions from the package. Please note that these calculate age-specific rates for both fertility and mortality, as they use mid-year population size by sex and age as an estimate of person-years lived during the year. Hence, the population in the denominator includes all those who were born before the $1^{st}$ of July of a given year and die in or after July of that year or are still alive at the end of the simulation. Due to the limited population size in a microsimulation (especially, of survivors at old ages), sometimes few or no individuals of a specific age are alive at a exact point in time (here, 1st July). Hence, it is possible to obtain rates higher than 1, equal to 0 (0_Events/Population), infinite (Events/0_Population) and NaN (0_Events/0_Population) values with these functions.  
-To run them, we need to define some arguments: the .opop file `opop`, final year of the simulation `final_sim_year`, the minimum and maximum years for which we want to estimate the rates, [`year_min` and `year_max`), the size of the year group `year_group`, the minimum and maximum age for fertility [`age_min_fert` and `age_max_fert`) or the maximum age for mortality `age_max_mort`) and the size of the age group `age_group`. We can compute the rates by different year and age groups (e.g., 1, 5, 10), but please check that the minimum and maximum years and ages correspond to the groups size. Let's run the code. 
+To check the accuracy of our microsimulation for the USA, we can estimate and compare input and output age-specific fertility and mortality rates (ASFR and ASMR) by sex. For this purpose, we can use the `estimate_fertility_rates` and `estimate_mortality_rates` functions from the package. Please note that these calculate age-specific rates for both fertility and mortality, as they use mid-year population size by sex and age as an estimate of person-years lived during the year. Hence, the population in the denominator includes all those who were born before the $1^{st}$ of July of a given year and die in or after July of that year or are still alive at the end of the simulation. Due to the limited population size in a microsimulation (especially, of survivors at old ages), sometimes few or no individuals of a specific age are alive at a exact point in time (here, 1st July). Hence, it is possible to obtain rates higher than 1, equal to 0 (0 Events/Population), infinite (Events/0 Population) and NaN (0 Events/0 Population) values with these functions.  
+To run them, we need to define some arguments: the .opop file `opop`, final year of the simulation `final_sim_year`, the minimum and maximum years for which we want to estimate the rates, [`year_min` and `year_max`), the size of the year group `year_group`, the minimum and maximum age for fertility [`age_min_fert` and `age_max_fert`) or the maximum age for mortality `age_max_mort`) and the size of the age group `age_group`. We can compute the rates by different year and age groups (e.g., 1, 5, or 10), but please check that the minimum and maximum years and ages correspond to the groups size. Let's run the code. 
 
 
 ```{r estimate rates}
@@ -186,7 +187,7 @@ asmr_sim <- rsocsim::estimate_mortality_rates(opop = opop,
 
 ```
 
-We can now plot our SOCSIM-derived estimates of ASFR and ASMR for women in some years.
+We can now plot our SOCSIM-derived estimates of ASFR and ASMR for women in some selected years.
 
 ```{r Plot_ASFR_ASMR, eval = TRUE}
 # Choose years to plot (in intervals).
@@ -219,5 +220,135 @@ bind_rows(asfr_sim %>%
 
 ```
 
+## Compare age-specific rates SOCSIM vs HFD/HMD
+
+As an additional check, we can compare the age-specific fertility and mortality rates retrieved from the SOCSIM output with the original HFD and HMD data used as input for our microsimulation. Since our estimates of fertility and mortality rates from SOCSIM output are grouped by 5-year age groups and 5-year calendar periods in the previous example, we should first estimate the aggregated measures (5x5) from the original HFD and HMD data. For plotting the data together, we also need some data wrangling.
+
+Let's start with fertility estimates.
+
+```{r Comparison_input-output_fertility}
+
+# Extract year and age breaks used in the estimate_fertility_rates() to apply the same values to HFD data
+# Year breaks. Extract all the unique numbers from the intervals. 
+year_breaks_fert <- unique(as.numeric(str_extract_all(asfr_sim$year, "\\d+", simplify = T)))
+
+# Year range to filter HFD data
+year_range_fert <- min(year_breaks_fert):max(year_breaks_fert-1)
+
+# Age breaks of fertility rates. Extract all the unique numbers from the intervals 
+age_breaks_fert <- unique(as.numeric(str_extract_all(asfr_sim$age, "\\d+", simplify = T)))
+
+# Read the same HFD file used to write the input fertility files
+HFD <- read.table(file = "USAasfrRR.txt", 
+                  as.is=T, header=T, skip=2, stringsAsFactors=F)
+
+# Wrangle data and compute monthly fertility rates
+HFD <- HFD %>% 
+  mutate(Age = case_when(Age == "12-" ~ "12",
+                         Age == "55+" ~ "55", 
+                         TRUE ~ Age),
+         Age = as.numeric(Age)) %>% 
+  filter(Year %in% year_range_fert) %>% 
+  mutate(year = cut(Year, breaks = year_breaks_fert, 
+                    include.lowest = F, right = F, ordered_results = T),
+         age = cut(Age, breaks = age_breaks_fert, 
+                   include.lowest = F, right = F, ordered_results = T)) %>% 
+  filter(!is.na(age)) %>% 
+  group_by(year, age) %>%
+  summarise(ASFR = mean(ASFR)) %>%
+  ungroup() %>%
+  mutate(Source = "HFD", 
+         Rate = "ASFR")
+
+# Wrangle SOCSIM data
+SocsimF <- asfr_sim %>% 
+  rename(ASFR = socsim) %>% 
+  mutate(Source = "SOCSIM",
+         Rate = "ASFR")
+
+```
+
+Then, the mortality estimates. Here, we compare the SOCSIM mid-year ASMR with central death rates from HMD life tables.
+
+```{r Input-output_mortality}
+
+# Extract year and age breaks used in the estimate_mortality_rates() to apply the same values to HMD data
+# Year breaks. Extract all the unique numbers from the intervals 
+year_breaks_mort <- unique(as.numeric(str_extract_all(asmr_sim$year, "\\d+", simplify = T)))
+
+# Year range to filter HMD data
+year_range_mort <- min(year_breaks_mort):max(year_breaks_mort-1)
+
+# Age breaks of mortality rates. Extract all the unique numbers from the intervals 
+age_breaks_mort <- unique(as.numeric(str_extract_all(asmr_sim$age, "\\d+", simplify = T)))
+
+
+# Read the same HMD female life table 1x1 file used to write the input mortality files
+ltf <- read.table(file="fltper_1x1.txt",
+                  as.is=T, header=T, skip=2, stringsAsFactors=F)
+
+# Read the same HMD male life table 1x1 file used to write the input mortality files
+ltm <- read.table(file="mltper_1x1.txt",
+                  as.is=T, header=T, skip=2, stringsAsFactors=F)
+
+# Wrangle HMD life tables
+HMD <- ltf %>%
+  select(Year, Age, mx) %>%
+  mutate(Sex = "Female") %>% 
+  bind_rows(ltm %>% 
+              select(Year, Age, mx) %>%  
+              mutate(Sex = "Male")) %>% 
+  mutate(Age = ifelse(Age == "110+", "110", Age),
+         Age = as.numeric(Age)) %>% 
+  filter(Year %in% year_range_mort) %>% 
+  mutate(year = cut(Year, breaks = year_breaks_mort, 
+                    include.lowest = F, right = F, ordered_results = T),
+         age = cut(Age, breaks = age_breaks_mort, 
+                   include.lowest = F, right = F, ordered_results = T)) %>%
+  filter(!is.na(age)) %>% 
+  group_by(year, Sex, age) %>% 
+  summarise(mx = mean(mx)) %>%
+  ungroup() %>% 
+    mutate(Source = "HMD",
+           Rate = "ASMR")
+
+# Wrangle SOCSIM data
+SocsimM <- asmr_sim %>% 
+  rename(mx = socsim) %>% 
+  mutate(Sex = ifelse(sex == "male", "Male", "Female"),
+         Source = "SOCSIM",
+         Rate = "ASMR") %>% 
+  select(year, Sex, age,  mx, Source, Rate)
+
+```
+
+Finally, we can plot together the age-specific fertility and mortality rates (ASFR and ASMR) from SOCSIM vs HFD and HMD for women in the USA. 
+
+```{r Plot_input-output}}
+
+## Plotting ASFR and ASMR (for females) from HFD/HMD vs SOCSIM 
+bind_rows(HFD %>% rename(Estimate = ASFR), 
+          SocsimF %>% rename(Estimate = ASFR)) %>% 
+  mutate(Sex = "Female") %>%   
+  bind_rows(HMD %>% rename(Estimate = mx),
+            SocsimM %>% rename(Estimate = mx)) %>% 
+  # Filter rates of 0, infinite (N_Deaths/0_Pop) and NaN (0_Deaths/0_Pop) values
+  filter(Estimate != 0 & !is.infinite(Estimate) & !is.nan(Estimate)) %>% 
+  filter(Sex == "Female") %>% 
+  mutate(age = factor(as.character(age), levels = age_levels)) %>%
+  filter(year %in% yrs_plot) %>% 
+  ggplot(aes(x = age, y = Estimate, group = interaction(year, Source)))+
+  facet_wrap(. ~ Rate, scales = "free") + 
+  geom_line(aes(colour = year, linetype = Source), linewidth = 1)+
+  scale_color_viridis(option = "D", discrete = T, direction = -1) +
+  scale_linetype_manual(values = c("HFD" = "solid", "HMD" = "solid","SOCSIM" = "11")) +
+  facetted_pos_scales(y = list(ASFR = scale_y_continuous(),
+                               ASMR =  scale_y_continuous(trans = "log10")))+
+  scale_x_discrete(guide = guide_axis(angle = 90)) +
+  labs(title = "Age-Specific Fertility and Mortality rates in the USA (1933-2020) \n retrieved from HFD, HMD and a SOCSIM simulation", 
+       x = "Age") + 
+  theme_bw()
+
+```
 
 # References
