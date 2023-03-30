@@ -4,7 +4,7 @@ kinship dynamics
 A Member Initiated Meeting at the 2023 Meeting of the Population
 Association of America (PAA); New Orleans, Apr 12, 2023
 
-- <a href="#1-setup" id="toc-1-setup">1. Setup</a>
+- <a href="#0-setup" id="toc-0-setup">0. Setup</a>
 - <a
   href="#2-running-a-simulation-and-retrieveing-the-input-demographic-rates"
   id="toc-2-running-a-simulation-and-retrieveing-the-input-demographic-rates">2.
@@ -16,7 +16,7 @@ Association of America (PAA); New Orleans, Apr 12, 2023
   bereavement</a>
 - <a href="#references" id="toc-references">References</a>
 
-# 1. Setup
+# 0. Setup
 
 We recommend that you go through point 1 of this tutorial **before** the
 start of the workshop. If you have any questions/difficulties, please
@@ -64,7 +64,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_6150"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_225"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -101,18 +101,18 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.4 ti2: 0.008000 0.5756
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.5 ti2: 0.013000 0.8591
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.7 ti2: 0.006000 0.3693
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.9 ti2: 0.005000 0.2926
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.0 ti2: 0.013000 0.7603
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.3 ti2: 0.014000 0.8750
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.4 ti2: 0.006000 0.3963
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.6 ti2: 0.006000 0.4276
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.8 ti2: 0.010000 0.7388
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 2.0 ti2: 0.015000 1.1619
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.2 ti2: 0.008000 0.6776
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.3 ti2: 0.011000 1.0256
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.006000 0.4317
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.4 ti2: 0.010000 0.6608
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.6 ti2: 0.005000 0.3077
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.8 ti2: 0.007000 0.4096
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.0 ti2: 0.007000 0.4094
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.2 ti2: 0.009000 0.5625
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.4 ti2: 0.012000 0.7926
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.6 ti2: 0.005000 0.3563
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.7 ti2: 0.015000 1.1082
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.9 ti2: 0.008000 0.6197
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.1 ti2: 0.007000 0.5929
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.2 ti2: 0.011000 1.0256
     ## 
     ## 
     ## Socsim Main Done
@@ -143,7 +143,7 @@ library(tidyverse) #For data wrangling
 
 > Instructor: Liliana P. Calderón, <https://twitter.com/lp_calderonb>
 
-## The simulation: supervisory and rate files
+## 2.1. The simulation: supervisory and rate files
 
 To provide an example of `rsocsim` usage, we will run a SOCSIM
 microsimulation for the United States of America (USA) over the period
@@ -163,7 +163,7 @@ produce a stable age structure, based on HFD rates and HMD probabilities
 for 1933. Each of the following segments runs for one year (12 months)
 with the corresponding fertility and mortality files.
 
-## Write the input rate files for a SOCSIM simulation for the USA, 1933-2020
+## 2.2. Write the input rate files for a SOCSIM simulation for the USA, 1933-2020
 
 The structure of the rate files is essential to run SOCSIM. According to
 Socsim Oversimplified (c.f. Mason 2016, 26–28), a rate block is a
@@ -188,7 +188,7 @@ HFD and HMD.
 source("functions.R")
 ```
 
-### Fertility files for SOCSIM
+### 2.2.1. Fertility files for SOCSIM
 
 For the input Age-Specific Female Fertility Rates, we keep the whole age
 range included in HFD \[12-55\], but limit the open-ended age intervals
@@ -219,7 +219,7 @@ used in HFD (here, “USA”).
 write_socsim_rates_HFD(Country = "USA") 
 ```
 
-### Mortality files for SOCSIM
+### 2.2.2. Mortality files for SOCSIM
 
 For the input Age-Specific Probabilities of Death, we keep the whole age
 range included in HMD \[0-110+\] but limit the open-ended age interval
@@ -259,7 +259,7 @@ used in HMD (here, “USA”).
 write_socsim_rates_HMD(Country = "USA")
 ```
 
-## Create initial population and marriage files
+## 2.3. Create initial population and marriage files
 
 Now that we have the rate files, let’s create the initial population
 (.opop) and marriage (.opop) files. The initial .opop will have a size
@@ -299,7 +299,7 @@ presim.omar <- data.frame()
 write.table(presim.omar, "presim.omar", row.names = F, col.names = F)
 ```
 
-## Run a SOCSIM simulation using the `rsocsim` package
+## 2.4. Run a SOCSIM simulation using the `rsocsim` package
 
 Now that we have created the input rate files and the initial population
 and marriage files, we can run the simulation. To use the `socsim`
@@ -342,7 +342,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
 
     ## [1] "read marriage file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
-## Estimate age-specific rates from the SOCSIM microsimulation
+## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
 To check the accuracy of our microsimulation for the USA, we can
 estimate and compare input and output age-specific fertility and
@@ -423,7 +423,7 @@ bind_rows(asfr_sim %>%
 
 <img src="README_files/figure-gfm/Plot_ASFR_ASMR-1.png" style="display: block; margin: auto;" />
 
-## Compare age-specific rates SOCSIM vs HFD/HMD
+## 2.6. Compare age-specific rates SOCSIM vs HFD/HMD
 
 As an additional check, we can compare the age-specific fertility and
 mortality rates retrieved from the SOCSIM output with the original HFD
@@ -603,7 +603,7 @@ for the individuals of the relevant age who are alive that year,
 identify the years of death of their parents, and then calculate the
 proportion of our sample who experienced a loss.
 
-### Getting our estimates
+### 3.1. Getting our estimates
 
 ``` r
 #Load dependencies
@@ -688,7 +688,7 @@ full_data <- bind_rows(lapply(1950:2030,
                                                       opop = opop)))
 ```
 
-### Examining our estimates
+### 3.2. Examining our estimates
 
 ``` r
 #Plot this data as a smoothed trendline

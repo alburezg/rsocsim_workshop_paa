@@ -19,7 +19,7 @@ knitr::opts_chunk$set(message = FALSE,
 options(scipen=999999)
 ```
 
-# 1. Setup
+# 0. Setup
 
 We recommend that you go through point 1 of this tutorial **before** the start of the workshop. If you have any questions/difficulties, please get in touch with the workshop coordinator (Diego Alburez).
 
@@ -77,7 +77,7 @@ library(tidyverse) #For data wrangling
 > Instructor: Liliana P. Calderón, https://twitter.com/lp_calderonb
 
 
-## The simulation: supervisory and rate files
+## 2.1. The simulation: supervisory and rate files
 
 To provide an example of `rsocsim` usage, we will run a SOCSIM microsimulation for the United States of America (USA) over the period 1933-2020. This microsimulation uses as input: age-specific fertility rates by calendar year and year of age downloaded from the [Human Fertility Database (HFD)](https://www.humanfertility.org/), and age-specific probabilities of death by sex downloaded from the [Human Mortality Database (HMD)](https://www.mortality.org/). To run the simulation, the original [HFD](https://www.humanfertility.org/) and [HMD](https://www.mortality.org/) data must be first converted to monthly rates/probabilities and SOCSIM format as described in Socsim Oversimplified [c.f. @mason2016socsim for details]. The rates corresponding to each year are specified in the supervisory file `socsim_USA.sup`, provided in this repository, which will be used to run the simulation. The first segment of the simulation runs for 100 years (1200 months) to produce a stable age structure, based on HFD rates and HMD probabilities for 1933. Each of the following segments runs for one year (12 months) with the corresponding fertility and mortality files. 
 
@@ -86,7 +86,7 @@ nocite: |
    @HFD, @HMD
 ---
 
-## Write the input rate files for a SOCSIM simulation for the USA, 1933-2020
+## 2.2. Write the input rate files for a SOCSIM simulation for the USA, 1933-2020
 
 The structure of the rate files is essential to run SOCSIM. According to Socsim Oversimplified [c.f. @mason2016socsim, pp. 26-28 ], a rate block is a complete set of age speciﬁc rates governing a demographic event for people of a particular sex, group and marital status. In the rate files, the order is always event (birth, death, marriage), group (1, ..), sex (F or M), and marital status (married, single, divorced, widowed). For the birth rates, this can be followed by number indicating parity. Each subsequent line contains a one month rate or probability and the age interval over which it holds (years and months of the upper age bound). The interval includes the upper age bound in previous line and ends just before the upper age bound in current line. The first two numbers are years and months of the upper age bound, which are added together, e.g. upper age bound of "1 0" or "0 12" refers to the first year of life [0,1). 
 
@@ -97,7 +97,7 @@ Let's load some functions we prepared to write SOCSIM rate files from HFD and HM
 source("functions.R")
 ```
 
-### Fertility files for SOCSIM
+### 2.2.1. Fertility files for SOCSIM
 
 For the input Age-Specific Female Fertility Rates, we keep the whole age range included in HFD [12-55], but limit the open-ended age intervals 12- and 55+ to one year, i.e.  [12-13) and [55-56). Additionally, SOCSIM requires a final age category with an upper bound corresponding to the maximum length of life, that we fixed to [56-110], to be consistent with HMD data.
 
@@ -111,7 +111,7 @@ The function below converts HFD data to SOCSIM format following the procedure ex
 write_socsim_rates_HFD(Country = "USA") 
 ```
 
-### Mortality files for SOCSIM
+### 2.2.2. Mortality files for SOCSIM
 
 For the input Age-Specific Probabilities of Death, we keep the whole age range included in HMD [0-110+] but limit the open-ended age interval 110+ to one year, i.e. [110-111). Originally, SOCSIM had an upper bound of 100 years, but in `rsocsim` the maximum age has been extended to 200 years. 
 
@@ -127,7 +127,7 @@ The function below converts HMD data to SOCSIM format following the procedure ex
 write_socsim_rates_HMD(Country = "USA")
 ```
 
-## Create initial population and marriage files
+## 2.3. Create initial population and marriage files
 
 Now that we have the rate files, let's create the initial population (.opop) and marriage (.opop) files. The initial .opop will have a size of 20000, with randomly assigned sex and dates of birth, and group 1 for all. Other columns will be completed during the simulation. The initial .omar will be an empty file.
 
@@ -164,7 +164,7 @@ write.table(presim.omar, "presim.omar", row.names = F, col.names = F)
 
 ```
 
-## Run a SOCSIM simulation using the `rsocsim` package 
+## 2.4. Run a SOCSIM simulation using the `rsocsim` package 
 
 Now that we have created the input rate files and the initial population and marriage files, we can run the simulation. To use the  `socsim ` function, we need to specify the folder where the supervisory and the rate files are, the name of the supervisory file for the rates retrieved from HFD and HMD (1933-2020), and a seed number for the simulation. 
 
@@ -200,7 +200,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
 ```
 
 
-## Estimate age-specific rates from the SOCSIM microsimulation
+## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
 To check the accuracy of our microsimulation for the USA, we can estimate and compare input and output age-specific fertility and mortality rates (ASFR and ASMR) by sex. For this purpose, we can use the `estimate_fertility_rates` and `estimate_mortality_rates` functions from the package. Please note that these calculate age-specific rates for both fertility and mortality, as they use mid-year population size by sex and age as an estimate of person-years lived during the year. Hence, the population in the denominator includes all those who were born before the $1^{st}$ of July of a given year and die in or after July of that year or are still alive at the end of the simulation. Due to the limited population size in a microsimulation (especially, of survivors at old ages), sometimes few or no individuals of a specific age are alive at a exact point in time (here, 1st July). Hence, it is possible to obtain rates higher than 1, equal to 0 (0 Events/Population), infinite (Events/0 Population) and NaN (0 Events/0 Population) values with these functions.  
 To run them, we need to define some arguments: the .opop file `opop`, final year of the simulation `final_sim_year`, the minimum and maximum years for which we want to estimate the rates, [`year_min` and `year_max`), the size of the year group `year_group`, the minimum and maximum age for fertility [`age_min_fert` and `age_max_fert`) or the maximum age for mortality `age_max_mort`) and the size of the age group `age_group`. We can compute the rates by different year and age groups (e.g., 1, 5, or 10), but please check that the minimum and maximum years and ages correspond to the groups size. Let's run the code. 
@@ -259,7 +259,7 @@ bind_rows(asfr_sim %>%
 
 ```
 
-## Compare age-specific rates SOCSIM vs HFD/HMD
+## 2.6. Compare age-specific rates SOCSIM vs HFD/HMD
 
 As an additional check, we can compare the age-specific fertility and mortality rates retrieved from the SOCSIM output with the original HFD and HMD data used as input for our microsimulation. Since our estimates of fertility and mortality rates from SOCSIM output are grouped by 5-year age groups and 5-year calendar periods in the previous example, we should first estimate the aggregated measures (5x5) from the original HFD and HMD data. For plotting the data together, we also need some data wrangling.
 
@@ -408,7 +408,7 @@ In our code, we will approach this by writing a function that we will loop over 
 
 
 
-### Getting our estimates
+### 3.1. Getting our estimates
 
 ```{r, warning = FALSE, message = FALSE}
 #Load dependencies
@@ -485,7 +485,7 @@ full_data <- bind_rows(lapply(1950:2030,
                                                       opop = opop)))
 ```
 
-### Examining our estimates
+### 3.2. Examining our estimates
 
 ```{r}
 #Plot this data as a smoothed trendline
