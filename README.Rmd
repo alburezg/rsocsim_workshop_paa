@@ -19,7 +19,7 @@ knitr::opts_chunk$set(message = FALSE,
 options(scipen=999999)
 ```
 
-# What is SOCSIM and how does it work?
+## Introduction: What is SOCSIM and how does it work?
 
 Socsim was originally developed for Unix at UC Berkeley [@hammel_socsim_1976], where it has been mantained for decades. The current release of rsocsim aims to be OS-agnostic and, for the most part, back-compatible with the original Socsim distribution. See https://lab.demog.berkeley.edu/socsim/ and especially https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
 

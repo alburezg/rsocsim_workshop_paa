@@ -17,6 +17,7 @@ Association of America (PAA); New Orleans, Apr 12, 2023
   id="toc-3-what-can-you-do-with-simulation-output-example-estimates-of-bereavement">3.
   What can you do with simulation output? Example: estimates of
   bereavement</a>
+- <a href="#4-learn-more" id="toc-4-learn-more">4. Learn more</a>
 - <a href="#references" id="toc-references">References</a>
 
 # What is SOCSIM and how does it work?
@@ -24,8 +25,9 @@ Association of America (PAA); New Orleans, Apr 12, 2023
 Socsim was originally developed for Unix at UC Berkeley (E. Hammel et
 al. 1976), where it has been mantained for decades. The current release
 of rsocsim aims to be OS-agnostic and, for the most part,
-back-compatible with the original Socsim distribution
-(<https://lab.demog.berkeley.edu/socsim/>).
+back-compatible with the original Socsim distribution. See
+<https://lab.demog.berkeley.edu/socsim/> and especially
+<https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf>.
 
 The following description of SOCSIM was adapted from the Supplementary
 Materials of (Alburez‐Gutierrez, Mason, and Zagheni 2021). SOCSIM is an
@@ -110,7 +112,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_1108"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_1923"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -147,18 +149,18 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.7 ti2: 0.013000 0.9354
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 1.0 ti2: 0.031000 2.0486
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.4 ti2: 0.010000 0.6154
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.8 ti2: 0.018000 1.0533
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 2.2 ti2: 0.026000 1.5206
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.7 ti2: 0.014000 0.8750
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 3.1 ti2: 0.024000 1.5852
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.6 ti2: 0.022000 1.5678
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 4.0 ti2: 0.028000 2.0687
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 4.5 ti2: 0.022000 1.7042
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.9 ti2: 0.018000 1.5246
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 5.3 ti2: 0.025000 2.3309
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.6 ti2: 0.014000 1.0073
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.9 ti2: 0.012000 0.7930
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.1 ti2: 0.010000 0.6154
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.5 ti2: 0.013000 0.7607
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.8 ti2: 0.019000 1.1112
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.3 ti2: 0.022000 1.3750
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 2.7 ti2: 0.015000 0.9908
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.3 ti2: 0.019000 1.3540
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 3.6 ti2: 0.025000 1.8471
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 4.2 ti2: 0.023000 1.7816
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.7 ti2: 0.019000 1.6093
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 5.2 ti2: 0.045000 4.1956
     ## 
     ## 
     ## Socsim Main Done
@@ -770,6 +772,24 @@ rates of bereavement for their children as a result.
 **To discuss:** How do you think you could extend this analysis to look
 at other kin? What are you interested in learning about, and how do you
 think SOCSIM could help you in your work?
+
+# 4. Learn more
+
+The ‘SOCSIM Oversimplified’ manual written by Carl Mason is a great
+starting point to learn more about how SOCSIM works:
+<https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf>.
+
+You can find more information about the `rsocsim` in the package’s
+website: <https://mpidr.github.io/rsocsim/>, including documentation for
+the functions currently available and work in progress.
+
+We are working on preparing extended vignettes with exercises and
+examples for using `rsocsim`. Follow us on twitter for updates!
+
+- Tom Theile: <https://twitter.com/TheileTom>
+- Diego Alburez: <https://twitter.com/d_alburez>
+- Liliana P. Calderón-Bernal, <https://twitter.com/lp_calderonb>
+- Mallika Snyder: <https://twitter.com/mallika_snyder>
 
 # References
 
