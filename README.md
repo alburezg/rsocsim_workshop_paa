@@ -4,6 +4,9 @@ kinship dynamics
 A Member Initiated Meeting at the 2023 Meeting of the Population
 Association of America (PAA); New Orleans, Apr 12, 2023
 
+- <a href="#what-is-socsim-and-how-does-it-work"
+  id="toc-what-is-socsim-and-how-does-it-work">What is SOCSIM and how does
+  it work?</a>
 - <a href="#1-setup" id="toc-1-setup">1. Setup</a>
 - <a
   href="#2-running-a-simulation-and-retrieving-the-input-demographic-rates"
@@ -15,6 +18,49 @@ Association of America (PAA); New Orleans, Apr 12, 2023
   What can you do with simulation output? Example: estimates of
   bereavement</a>
 - <a href="#references" id="toc-references">References</a>
+
+# What is SOCSIM and how does it work?
+
+Socsim was originally developed for Unix at UC Berkeley (E. Hammel et
+al. 1976), where it has been mantained for decades. The current release
+of rsocsim aims to be OS-agnostic and, for the most part,
+back-compatible with the original Socsim distribution
+(<https://lab.demog.berkeley.edu/socsim/>).
+
+The following description of SOCSIM was adapted from the Supplementary
+Materials of (Alburez‐Gutierrez, Mason, and Zagheni 2021). SOCSIM is an
+open source and extensible demographic microsimulation program. It is
+written in the C programming language and relies heavily on arrays of
+linked lists to keep track of kinship relationships and to store
+information about simulated individuals. The simulator takes as input
+initial population files and monthly age-specific fertility and
+mortality demographic rates. The individual is the unit of analysis of
+the simulator. Each person is subject to a set of rates, expressed as
+monthly probabilities of events, given certain demographic
+characteristics, like age and sex. Every month, each individual faces
+the risk of experiencing a number of events, including childbirth,
+death, and marriage. The selection of the event and the waiting time
+until the event occurs are determined stochastically using a competing
+risk model. Some other constraints are included in the simulation
+program in order to draw events only for individuals that are eligible
+for the events (e.g. to allow for a minimum interval of time between
+births from the same mother, to avoid social taboos such as incest,
+etc.). Each event for which the individual is at risk is modeled as a
+piece-wise exponential distribution. The waiting time until each event
+occurs is randomly generated according to the associated demographic
+rates. The individual’s next event is the one with the shortest waiting
+time. At the end of the simulation, population files that contain a list
+of everyone who has ever lived in the population are created. In these
+files, each individual is an observation in a rectangular data file with
+records of demographic characteristics for the individual, and
+identification numbers for key kinship relations. SOCSIM models “closed”
+populations. Individuals may enter and exit the simulation only by
+(simulated) birth and death.
+
+SOCSIM has been used extensively in social science research to study,
+among other things, dynamics of kin availability Verdery and Margolis
+(2017), generational overlap Alburez‐Gutierrez, Mason, and Zagheni
+(2021), and kin loss Snyder et al. (2022).
 
 # 1. Setup
 
@@ -64,7 +110,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_4364"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_1108"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -101,18 +147,18 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.006000 0.4317
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.5 ti2: 0.010000 0.6608
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.6 ti2: 0.008000 0.4923
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.9 ti2: 0.009000 0.5266
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.0 ti2: 0.007000 0.4094
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.2 ti2: 0.010000 0.6250
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.4 ti2: 0.012000 0.7926
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.6 ti2: 0.006000 0.4276
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.7 ti2: 0.011000 0.8127
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.9 ti2: 0.010000 0.7746
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.1 ti2: 0.006000 0.5082
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.3 ti2: 0.014000 1.3053
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.7 ti2: 0.013000 0.9354
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 1.0 ti2: 0.031000 2.0486
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.4 ti2: 0.010000 0.6154
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.8 ti2: 0.018000 1.0533
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 2.2 ti2: 0.026000 1.5206
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.7 ti2: 0.014000 0.8750
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 3.1 ti2: 0.024000 1.5852
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.6 ti2: 0.022000 1.5678
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 4.0 ti2: 0.028000 2.0687
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 4.5 ti2: 0.022000 1.7042
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.9 ti2: 0.018000 1.5246
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 5.3 ti2: 0.025000 2.3309
     ## 
     ## 
     ## Socsim Main Done
@@ -139,6 +185,8 @@ library(rsocsim)
 library(tidyverse) #For data wrangling
 # install.packages("ggh4x")
 library(ggh4x) #for extendd facet plotting
+# install.packages("data.table") #for large datasets
+library(data.table)
 ```
 
 # 2. Running a simulation and retrieving the input demographic rates
@@ -240,10 +288,10 @@ To convert the annual HMD probabilities to monthly ‘SOCSIM’
 probabilities, we assume that the probability of dying is constant over
 the year and use the formula
 ![1-(1-\_nq_x)^{1/n}](https://latex.codecogs.com/png.latex?1-%281-_nq_x%29%5E%7B1%2Fn%7D "1-(1-_nq_x)^{1/n}")
-proposed by Kenneth Watcher (Wachter 2014, 53). For the open-ended age
-interval 110+, monthly probabilities are equal to 1/12. The
-probabilities of death are identical for all marital status of each sex,
-and are only specified for single women and single men in the rate
+proposed by Kenneth Watcher (Kenneth W. Wachter 2014, 53). For the
+open-ended age interval 110+, monthly probabilities are equal to 1/12.
+The probabilities of death are identical for all marital status of each
+sex, and are only specified for single women and single men in the rate
 files. Other marital status will follow SOCSIM’s rate default rules.
 
 To write the input mortality files, please download from the [HMD
@@ -612,12 +660,6 @@ proportion of our sample who experienced a loss.
 
 ### 3.1. Getting our estimates
 
-``` r
-#Load dependencies
-require(tidyverse) #For data wrangling
-require(RColorBrewer) #For nicer colors
-```
-
 The first thing we require is a helper function to identify the year of
 interest.
 
@@ -716,7 +758,7 @@ full_data %>%
   theme_bw() 
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="README_files/figure-gfm/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 These results show us how rates of parental loss have changed for
 children over time: as we would expect, they have decreased with
@@ -732,6 +774,32 @@ think SOCSIM could help you in your work?
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-alburezgutierrez_sandwich_2021" class="csl-entry">
+
+Alburez‐Gutierrez, Diego, Carl Mason, and Emilio Zagheni. 2021. “The
+‘Sandwich Generation’ Revisited: Global Demographic Drivers of Care Time
+Demands.” *Population and Development Review* 47 (4): 997–1023.
+<https://doi.org/10.1111/padr.12436>.
+
+</div>
+
+<div id="ref-hammel_demographic_2005" class="csl-entry">
+
+Hammel, E. A. 2005. “Demographic Dynamics and Kinship in Anthropological
+Populations.” *Proceedings of the National Academy of Sciences* 102 (6):
+2248–53. <https://doi.org/10.1073/pnas.0409762102>.
+
+</div>
+
+<div id="ref-hammel_socsim_1976" class="csl-entry">
+
+Hammel, E., D Hutchinson, K Wachter, R Lundy, and R Deuel. 1976. *The
+SOCSIM Demographic-Sociological Microsimulation Program: Operating
+Manual*. Institute of International Studies. University of California
+Berkeley.
+
+</div>
 
 <div id="ref-HMD" class="csl-entry">
 
@@ -752,10 +820,48 @@ class="nocase">Available at www.humanfertility.org</span>.”
 
 </div>
 
+<div id="ref-margolis_cohort_2019" class="csl-entry">
+
+Margolis, Rachel, and Ashton M. Verdery. 2019. “A Cohort Perspective on
+the Demography of Grandparenthood: Past, Present, and Future Changes in
+Race and Sex Disparities in the United States.” *Demography* 56 (4):
+1495–1518. <https://doi.org/10.1007/s13524-019-00795-1>.
+
+</div>
+
 <div id="ref-mason2016socsim" class="csl-entry">
 
 Mason, Carl. 2016. “Socsim Oversimplified. Berkeley: Demography Lab,
 University of California.”
+
+</div>
+
+<div id="ref-snyder_estimates_2022" class="csl-entry">
+
+Snyder, Mallika, Diego Alburez-Gutierrez, Iván Williams, and Emilio
+Zagheni. 2022. “Estimates from 31 Countries Show the Significant Impact
+of COVID-19 Excess Mortality on the Incidence of Family Bereavement.”
+*Proceedings of the National Academy of Sciences* 119 (26): e2202686119.
+<https://doi.org/10.1073/pnas.2202686119>.
+
+</div>
+
+<div id="ref-verdery_projections_2017" class="csl-entry">
+
+Verdery, Ashton M., and Rachel Margolis. 2017. “Projections of White and
+Black Older Adults Without Living Kin in the United States, 2015 to
+2060.” *Proceedings of the National Academy of Sciences* 114 (42):
+11109–14. <https://doi.org/10.1073/pnas.1710341114>.
+
+</div>
+
+<div id="ref-verdery_tracking_2020" class="csl-entry">
+
+Verdery, Ashton M., Emily Smith-Greenaway, Rachel Margolis, and Jonathan
+Daw. 2020. “Tracking the Reach of COVID-19 Kin Loss with a Bereavement
+Multiplier Applied to the United States.” *Proceedings of the National
+Academy of Sciences* 117 (30): 17695.
+<https://doi.org/10.1073/pnas.2007476117>.
 
 </div>
 
@@ -766,12 +872,29 @@ University Press.
 
 </div>
 
+<div id="ref-wachter_kinship_1997" class="csl-entry">
+
+Wachter, Kenneth W. 1997. “Kinship Resources for the Elderly.”
+*Philosophical Transactions of the Royal Society of London. Series B:
+Biological Sciences* 352 (1363): 1811–17.
+<https://doi.org/10.1098/rstb.1997.0166>.
+
+</div>
+
 <div id="ref-wilmoth_methods_2021" class="csl-entry">
 
 Wilmoth, J, K Andreev, D Jdanov, D. A. Glei, T Riffe, C Boe, M
 Bubenheim, et al. 2021. “Methods Protocol for the Human Mortality
 Database.” University of California, Berkeley; Max Planck Institute for
 Demographic Research, Rostock. <https://www.mortality.org/>.
+
+</div>
+
+<div id="ref-zagheni_impact_2011" class="csl-entry">
+
+Zagheni, Emilio. 2011. “The Impact of the HIV/AIDS Epidemic on Kinship
+Resources for Orphans in Zimbabwe.” *Population and Development Review*
+37 (4): 761–83. <https://doi.org/10.1111/j.1728-4457.2011.00456.x>.
 
 </div>
 

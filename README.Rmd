@@ -19,6 +19,14 @@ knitr::opts_chunk$set(message = FALSE,
 options(scipen=999999)
 ```
 
+# What is SOCSIM and how does it work?
+
+Socsim was originally developed for Unix at UC Berkeley [@hammel_socsim_1976], where it has been mantained for decades. The current release of rsocsim aims to be OS-agnostic and, for the most part, back-compatible with the original Socsim distribution. See https://lab.demog.berkeley.edu/socsim/ and especially https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
+
+The following description of SOCSIM was adapted from the Supplementary Materials of [@alburezgutierrez_sandwich_2021]. SOCSIM is an open source and extensible demographic microsimulation program. It is written in the C programming language and relies heavily on arrays of linked lists to keep track of kinship relationships and to store information about simulated individuals. The simulator takes as input initial population files and monthly age-specific fertility and mortality demographic rates. The individual is the unit of analysis of the simulator. Each person is subject to a set of rates, expressed as monthly probabilities of events, given certain demographic characteristics, like age and sex. Every month, each individual faces the risk of experiencing a number of events, including childbirth, death, and marriage. The selection of the event and the waiting time until the event occurs are determined stochastically using a competing risk model. Some other constraints are included in the simulation program in order to draw events only for individuals that are eligible for the events (e.g. to allow for a minimum interval of time between births from the same mother, to avoid social taboos such as incest, etc.). Each event for which the individual is at risk is modeled as a piece-wise exponential distribution. The waiting time until each event occurs is randomly generated according to the associated demographic rates. The individual’s next event is the one with the shortest waiting time. At the end of the simulation, population files that contain a list of everyone who has ever lived in the population are created. In these files, each individual is an observation in a rectangular data file with records of demographic characteristics for the individual, and identification numbers for key kinship relations. SOCSIM models “closed” populations. Individuals may enter and exit the simulation only by (simulated) birth and death.
+
+SOCSIM has been used extensively in social science research to study, among other things, dynamics of kin availability [@hammel_demographic_2005, @wachter_kinship_1997, @verdery_projections_2017], generational overlap [@margolis_cohort_2019, @alburezgutierrez_sandwich_2021], and kin loss [@zagheni_impact_2011, @verdery_tracking_2020, @snyder_estimates_2022].
+
 # 1. Setup
 
 We recommend that you go through point 1 of this tutorial **before** the start of the workshop. If you have any questions/difficulties, please get in touch with the workshop coordinator (Diego Alburez).
@@ -72,6 +80,8 @@ library(rsocsim)
 library(tidyverse) #For data wrangling
 # install.packages("ggh4x")
 library(ggh4x) #for extendd facet plotting
+# install.packages("data.table") #for large datasets
+library(data.table)
 ```
 
 # 2. Running a simulation and retrieving the input demographic rates
@@ -416,12 +426,6 @@ In our code, we will approach this by writing a function that we will loop over 
 
 ### 3.1. Getting our estimates
 
-```{r, warning = FALSE, message = FALSE}
-#Load dependencies
-require(tidyverse) #For data wrangling
-require(RColorBrewer) #For nicer colors
-```
-
 The first thing we require is a helper function to identify the year of interest.
 
 ```{r}
@@ -518,5 +522,18 @@ full_data %>%
 These results show us how rates of parental loss have changed for children over time: as we would expect, they have decreased with declining mortality. Since fathers are expected to be older than mothers, based on SOCSIM's marriage matching model of age differences between spouses, we would expect higher mortality for them, and higher rates of bereavement for their children as a result. 
 
 **To discuss:** How do you think you could extend this analysis to look at other kin? What are you interested in learning about, and how do you think SOCSIM could help you in your work? 
+
+# 4. Learn more
+
+The 'SOCSIM Oversimplified' manual written by Carl Mason is a great starting point to learn more about how SOCSIM works: https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf. 
+
+You can find more information about the `rsocsim` in the package's website: https://mpidr.github.io/rsocsim/, including documentation for the functions currently available and work in progress. 
+
+We are working on preparing extended vignettes with exercises and examples for using `rsocsim`. Follow us on twitter for updates!
+
+- Tom Theile: https://twitter.com/TheileTom
+- Diego Alburez: https://twitter.com/d_alburez
+- Liliana P. Calderón-Bernal, https://twitter.com/lp_calderonb
+- Mallika Snyder: https://twitter.com/mallika_snyder
 
 # References
