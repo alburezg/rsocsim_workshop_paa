@@ -4,9 +4,6 @@ kinship dynamics
 A Member Initiated Meeting at the 2023 Meeting of the Population
 Association of America (PAA); New Orleans, Apr 12, 2023
 
-- <a href="#what-is-socsim-and-how-does-it-work"
-  id="toc-what-is-socsim-and-how-does-it-work">What is SOCSIM and how does
-  it work?</a>
 - <a href="#1-setup" id="toc-1-setup">1. Setup</a>
 - <a
   href="#2-running-a-simulation-and-retrieving-the-input-demographic-rates"
@@ -20,10 +17,10 @@ Association of America (PAA); New Orleans, Apr 12, 2023
 - <a href="#4-learn-more" id="toc-4-learn-more">4. Learn more</a>
 - <a href="#references" id="toc-references">References</a>
 
-# What is SOCSIM and how does it work?
+## Introduction: What is SOCSIM and how does it work?
 
 Socsim was originally developed for Unix at UC Berkeley (E. Hammel et
-al. 1976), where it has been mantained for decades. The current release
+al. 1976), where it has been maintained for decades. The current release
 of rsocsim aims to be OS-agnostic and, for the most part,
 back-compatible with the original Socsim distribution. See
 <https://lab.demog.berkeley.edu/socsim/> and especially
@@ -98,8 +95,8 @@ library(rsocsim)
 # this will be in your home- or user-directory:
 folder = rsocsim::create_simulation_folder()
 
-# create a new supplement-file. Supplement-files tell socsim what
-# to simulate. create_sup_file will create a very basic supplement filee
+# create a new supervisory-file. supervisory-files tell socsim what
+# to simulate. create_sup_file will create a very basic supervisory file
 # and it copies some rate-files that will also be needed into the 
 # simulation folder:
 supfile = rsocsim::create_sup_file(folder)
@@ -112,7 +109,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_1923"
+    ## [1] "C:/Users/calderonbernal/socsim/socsim_sim_1820"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -149,23 +146,23 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.6 ti2: 0.014000 1.0073
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.9 ti2: 0.012000 0.7930
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.1 ti2: 0.010000 0.6154
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.5 ti2: 0.013000 0.7607
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.8 ti2: 0.019000 1.1112
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.3 ti2: 0.022000 1.3750
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 2.7 ti2: 0.015000 0.9908
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.3 ti2: 0.019000 1.3540
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 3.6 ti2: 0.025000 1.8471
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 4.2 ti2: 0.023000 1.7816
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.7 ti2: 0.019000 1.6093
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 5.2 ti2: 0.045000 4.1956
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.007000 0.5037
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.4 ti2: 0.008000 0.5287
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.5 ti2: 0.006000 0.3693
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.7 ti2: 0.006000 0.3511
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 0.8 ti2: 0.009000 0.5264
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.0 ti2: 0.006000 0.3750
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.1 ti2: 0.007000 0.4624
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.3 ti2: 0.007000 0.4988
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.4 ti2: 0.008000 0.5911
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.6 ti2: 0.007000 0.5422
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 1.7 ti2: 0.006000 0.5082
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 1.8 ti2: 0.008000 0.7459
     ## 
     ## 
     ## Socsim Main Done
     ## Socsim Done.
-    ## [1] "restore previous working dir: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa"
+    ## [1] "restore previous working dir: U:/SOCSIM/rsocsim_workshop_paa"
 
     ## [1] 1
 
@@ -186,7 +183,7 @@ library(rsocsim)
 # install.packages("tidyverse")
 library(tidyverse) #For data wrangling
 # install.packages("ggh4x")
-library(ggh4x) #for extendd facet plotting
+library(ggh4x) #for extended facet plotting
 # install.packages("data.table") #for large datasets
 library(data.table)
 ```
@@ -377,7 +374,8 @@ rsocsim::socsim(folder, supfile, seed, process_method = "future")
 ```
 
 The simulation results are ready. We can use the `read_opop` and
-`read_omar` functions from the package to import the results into `R`.
+`read_omar` functions from the `rsocsim` package to import the output
+population and marriage files into `R`.
 
 ``` r
 ## Read the opop file using the read_opop function
@@ -385,7 +383,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -393,7 +391,53 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+
+Let’s have a glimpse on the simulated population and marriage files.
+
+The population file (.opop) contains one record for each individual who
+was ever alive during the simulation. Each record (row) provides the
+following information for a given individual: person id (pid), sex (fem,
+1 for female and 0 for male), group identifier (group), next scheduled
+event (nev), date of birth (dob), person id of mother (mom), person id
+of father (pop), person id of next eldest sibling through mother
+(nesibm), person id of next eldest sibling through father (nesibp),
+person id of last born child (lborn), id of most recent marriage in
+.omar ﬁle (marid), marital status at end of simulation (mstat), date of
+death (dod, or 0 if alive at end of simulation) and fertility multiplier
+(fmult).
+
+``` r
+head(opop)
+```
+
+    ##   pid fem group nev dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
+    ## 1   1   1     1  65 806   0   0      0      0     0     0     1 1662 0.172002
+    ## 2   2   0     1  65 760   0   0      0      0     0     0     1 1826 0.000000
+    ## 3   3   1     1  65 763   0   0      0      0     0     0     1 1689 0.605228
+    ## 4   4   0     1  65 955   0   0      0      0 23904  1959     3 2041 0.000000
+    ## 5   5   1     1  65 923   0   0      0      0 22593  2018     3 1871 0.701332
+    ## 6   6   0     1  65 790   0   0      0      0 21265  1139     4 1394 0.000000
+
+The marriage file (.omar) contains one record for each marriage. Each
+marriage record provides the following information: marriage id number
+(mid), wife’s person id (wpid), husband’s person id (hpid), date
+marriage began (dstart), date marriage ended (dend, it’s 0 if in force
+at the end of simulation), reason marriage ended (rend), marriage id of
+wife’s next most recent prior marriage (wprior), marriage id of
+husband’s next most recent prior marriage (hprior).
+
+``` r
+head(omar)
+```
+
+    ##   mid  wpid hpid dstart dend rend wprior hprior
+    ## 1   1  9289 7228   1201 2112    3      0      0
+    ## 2   2  6989 4799   1201 1784    3      0      0
+    ## 3   3   104 9607   1201 1386    3      0      0
+    ## 4   4  4302 9271   1201 1576    3      0      0
+    ## 5   5  4155 2676   1201 1234    3      0      0
+    ## 6   6 10294   59   1201 1224    3      0      0
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -427,7 +471,7 @@ and ages correspond to the groups size. Let’s run the code.
 ``` r
 # Estimate age-specific fertility rates
 asfr_sim <- rsocsim::estimate_fertility_rates(opop = opop,
-                                             final_sim_year = 2020 , #[Jan-Dec]
+                                             final_sim_year = 2020, #[Jan-Dec]
                                              year_min = 1935, # Closed [
                                              year_max = 2020, # Open )
                                              year_group = 5, 
@@ -666,10 +710,10 @@ The first thing we require is a helper function to identify the year of
 interest.
 
 ``` r
-#We won't discuss how this function works, but it uses the ending simulation year
-#and month to convert our monthly dates into yearly ones
-asYr <- function(FinalSimYear = FinalSimYear, endmo = endmo, x) {
-  return(trunc(FinalSimYear - (endmo - x)/12))
+#We won't discuss how this function works, but it uses the final simulation year (January-December)
+#and the last simulated month to convert our monthly dates into yearly ones
+asYr <- function(month, last_month=last_month, final_sim_year=final_sim_year) {
+  return(final_sim_year - trunc((last_month - month)/12))
 }
 ```
 
@@ -681,7 +725,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 #We won't use the omar today, but you can use it when investigating affinal kin
@@ -689,18 +733,18 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
 
 ``` r
 #Parameters specific to this simulation: will need to be changed
-endmo <- max(opop$dob) + 1 #Ending month of simulation
-FinalSimYear <- 2035
+last_month <- max(opop$dob) # Last simulated month
+final_sim_year <- 2020
 ```
 
 ``` r
 #Cleaning our population file
 opop <- opop %>% 
  #Fixing dates of death for individuals still living at the end
-  mutate(dod = if_else(dod == 0, endmo, dod)) %>%
+  mutate(dod = if_else(dod == 0, last_month, dod)) %>%
   #Dates of birth and death in years for both individual and parents
-  mutate(dob_year = asYr(endmo = endmo, FinalSimYear = FinalSimYear, dob),
-         dod_year = asYr(endmo = endmo, FinalSimYear = FinalSimYear, dod), 
+  mutate(dob_year = asYr(dob, last_month=last_month, final_sim_year=final_sim_year),
+         dod_year = asYr(dod, last_month=last_month, final_sim_year=final_sim_year), 
          mom_dod_year = dod_year[match(mom, pid)],
          pop_dod_year = dod_year[match(pop, pid)])
 ```
@@ -734,7 +778,7 @@ each year.
 
 ``` r
 #Loop through and bind rows
-full_data <- bind_rows(lapply(1950:2030, 
+full_data <- bind_rows(lapply(1933:2020, 
                               function(x) getKinLoss(year_of_interest = x, 
                                                       opop = opop)))
 ```
