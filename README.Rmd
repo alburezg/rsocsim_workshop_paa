@@ -21,7 +21,7 @@ options(scipen=999999)
 
 ## Introduction: What is SOCSIM and how does it work?
 
-Socsim was originally developed for Unix at UC Berkeley [@hammel_socsim_1976], where it has been mantained for decades. The current release of rsocsim aims to be OS-agnostic and, for the most part, back-compatible with the original Socsim distribution. See https://lab.demog.berkeley.edu/socsim/ and especially https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
+Socsim was originally developed for Unix at UC Berkeley [@hammel_socsim_1976], where it has been maintained for decades. The current release of rsocsim aims to be OS-agnostic and, for the most part, back-compatible with the original Socsim distribution. See https://lab.demog.berkeley.edu/socsim/ and especially https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
 
 The following description of SOCSIM was adapted from the Supplementary Materials of [@alburezgutierrez_sandwich_2021]. SOCSIM is an open source and extensible demographic microsimulation program. It is written in the C programming language and relies heavily on arrays of linked lists to keep track of kinship relationships and to store information about simulated individuals. The simulator takes as input initial population files and monthly age-specific fertility and mortality demographic rates. The individual is the unit of analysis of the simulator. Each person is subject to a set of rates, expressed as monthly probabilities of events, given certain demographic characteristics, like age and sex. Every month, each individual faces the risk of experiencing a number of events, including childbirth, death, and marriage. The selection of the event and the waiting time until the event occurs are determined stochastically using a competing risk model. Some other constraints are included in the simulation program in order to draw events only for individuals that are eligible for the events (e.g. to allow for a minimum interval of time between births from the same mother, to avoid social taboos such as incest, etc.). Each event for which the individual is at risk is modeled as a piece-wise exponential distribution. The waiting time until each event occurs is randomly generated according to the associated demographic rates. The individual’s next event is the one with the shortest waiting time. At the end of the simulation, population files that contain a list of everyone who has ever lived in the population are created. In these files, each individual is an observation in a rectangular data file with records of demographic characteristics for the individual, and identification numbers for key kinship relations. SOCSIM models “closed” populations. Individuals may enter and exit the simulation only by (simulated) birth and death.
 
@@ -52,8 +52,8 @@ library(rsocsim)
 # this will be in your home- or user-directory:
 folder = rsocsim::create_simulation_folder()
 
-# create a new supplement-file. Supplement-files tell socsim what
-# to simulate. create_sup_file will create a very basic supplement filee
+# create a new supervisory-file. supervisory-files tell socsim what
+# to simulate. create_sup_file will create a very basic supervisory file
 # and it copies some rate-files that will also be needed into the 
 # simulation folder:
 supfile = rsocsim::create_sup_file(folder)
@@ -79,7 +79,7 @@ library(rsocsim)
 # install.packages("tidyverse")
 library(tidyverse) #For data wrangling
 # install.packages("ggh4x")
-library(ggh4x) #for extendd facet plotting
+library(ggh4x) #for extended facet plotting
 # install.packages("data.table") #for large datasets
 library(data.table)
 ```
@@ -198,7 +198,7 @@ rsocsim::socsim(folder, supfile, seed, process_method = "future")
 
 ```
 
-The simulation results are ready. We can use the `read_opop` and  `read_omar` functions from the package to import the results into `R`. 
+The simulation results are ready. We can use the `read_opop` and  `read_omar` functions from the `rsocsim` package to import the output population and marriage files into `R`. 
 
 ```{r read_opop_omar}
 
@@ -211,6 +211,19 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
+Let's have a glimpse on the simulated population and marriage files. 
+
+The population file (.opop) contains one record for each individual who was ever alive during the simulation. Each record (row) provides the following information for a given individual: person id (pid), sex (fem, 1 for female and 0 for male), group identifier (group), next scheduled event (nev), date of birth (dob), person id of mother (mom), person id of father (pop), person id of next eldest sibling through mother (nesibm), person id of next eldest sibling through father (nesibp), person id of last born child (lborn), id of most recent marriage in .omar ﬁle (marid), marital status at end of simulation (mstat), date of death (dod, or 0 if alive at end of simulation) and fertility multiplier (fmult). 
+
+```{r opop}
+head(opop)
+```
+
+The marriage file (.omar) contains one record for each marriage. Each marriage record provides the following information: marriage id number (mid), wife’s person id (wpid), husband’s person id (hpid), date marriage began (dstart), date marriage ended (dend, it's 0 if in force at the end of simulation), reason marriage ended (rend), marriage id of wife’s next most recent prior marriage (wprior), marriage id of husband’s next most recent prior marriage (hprior).
+
+```{r omar}
+head(omar)
+```
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -222,7 +235,7 @@ To run them, we need to define some arguments: the .opop file `opop`, final year
 
 # Estimate age-specific fertility rates
 asfr_sim <- rsocsim::estimate_fertility_rates(opop = opop,
-                                             final_sim_year = 2020 , #[Jan-Dec]
+                                             final_sim_year = 2020, #[Jan-Dec]
                                              year_min = 1935, # Closed [
                                              year_max = 2020, # Open )
                                              year_group = 5, 
@@ -429,11 +442,12 @@ In our code, we will approach this by writing a function that we will loop over 
 The first thing we require is a helper function to identify the year of interest.
 
 ```{r}
-#We won't discuss how this function works, but it uses the ending simulation year
-#and month to convert our monthly dates into yearly ones
-asYr <- function(FinalSimYear = FinalSimYear, endmo = endmo, x) {
-  return(trunc(FinalSimYear - (endmo - x)/12))
+#We won't discuss how this function works, but it uses the final simulation year (January-December)
+#and the last simulated month to convert our monthly dates into yearly ones
+asYr <- function(month, last_month=last_month, final_sim_year=final_sim_year) {
+  return(final_sim_year - trunc((last_month - month)/12))
 }
+
 ```
 
 Now we can load the data and define a few relevant parameters.
@@ -447,18 +461,18 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
 
 ```{r}
 #Parameters specific to this simulation: will need to be changed
-endmo <- max(opop$dob) + 1 #Ending month of simulation
-FinalSimYear <- 2035
+last_month <- max(opop$dob) # Last simulated month
+final_sim_year <- 2020
 ```
 
 ```{r}
 #Cleaning our population file
 opop <- opop %>% 
  #Fixing dates of death for individuals still living at the end
-  mutate(dod = if_else(dod == 0, endmo, dod)) %>%
+  mutate(dod = if_else(dod == 0, last_month, dod)) %>%
   #Dates of birth and death in years for both individual and parents
-  mutate(dob_year = asYr(endmo = endmo, FinalSimYear = FinalSimYear, dob),
-         dod_year = asYr(endmo = endmo, FinalSimYear = FinalSimYear, dod), 
+  mutate(dob_year = asYr(dob, last_month=last_month, final_sim_year=final_sim_year),
+         dod_year = asYr(dod, last_month=last_month, final_sim_year=final_sim_year), 
          mom_dod_year = dod_year[match(mom, pid)],
          pop_dod_year = dod_year[match(pop, pid)])
 ```
@@ -490,7 +504,7 @@ Now loop through this function to generate a tibble with our data for each year.
 
 ```{r}
 #Loop through and bind rows
-full_data <- bind_rows(lapply(1950:2030, 
+full_data <- bind_rows(lapply(1933:2020, 
                               function(x) getKinLoss(year_of_interest = x, 
                                                       opop = opop)))
 ```

@@ -1,9 +1,6 @@
 #----------------------------------------------------------------------------------------------------
 # Functions to Write SOCSIM fertility and mortality input rate files using HFD and HMD data
 
-# Created by Liliana Calderon on 08-06-2022
-# Last modified by Liliana Calderon on 28-03-2023
-
 #----------------------------------------------------------------------------------------------------
 # Create a sub-folder called "rates" to save the rate files if it does not exist.
 ifelse(!dir.exists("rates"), dir.create("rates"), FALSE)
@@ -12,7 +9,6 @@ ifelse(!dir.exists("rates"), dir.create("rates"), FALSE)
 
 # Prevent scientific notation
 options(scipen=999999)
-
 
 #----------------------------------------------------------------------------------------------------
 #### Write SOCSIM input fertility rates from HFD ----
