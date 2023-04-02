@@ -109,7 +109,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/calderonbernal/socsim/socsim_sim_1820"
+    ## [1] "/Users/mallikasnyder/socsim/socsim_sim_4232"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -126,18 +126,18 @@ rsocsim::socsim(folder,supfile,seed)
     ## #load.cpp->load 4. socsim.sup
     ## 18b-load.cpp->load . SWEfert2022
     ## #load.cpp->load 4. SWEfert2022
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
     ## 18b-load.cpp->load . SWEmort2022
     ## #load.cpp->load 4. SWEmort2022
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
-    ## Incomplete rate set: 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
+    ## Incomplete rate set, will add rate till MAXUYEARS (death-->1.0; others:0.0) 12
     ## ------------4marriage_eval == DISTRIBUTION . socsim.sup
     ## ------------6------------7
     ##  output file names:
@@ -146,23 +146,23 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.007000 0.5037
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.4 ti2: 0.008000 0.5287
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.5 ti2: 0.006000 0.3693
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.7 ti2: 0.006000 0.3511
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 0.8 ti2: 0.009000 0.5264
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.0 ti2: 0.006000 0.3750
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.1 ti2: 0.007000 0.4624
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.3 ti2: 0.007000 0.4988
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.4 ti2: 0.008000 0.5911
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.6 ti2: 0.007000 0.5422
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 1.7 ti2: 0.006000 0.5082
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 1.8 ti2: 0.008000 0.7459
+    ## ------------b1month:  700 PopLive:  9399 Brths:  12 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 3759 Fq:0 ti1: 0.2 ti2: 0.006982 0.4941
+    ## month:  800 PopLive: 10826 Brths:  24 Dths:   1 Mrgs:  9 Dvs:  0 Mq: 3811 Fq:0 ti1: 0.4 ti2: 0.007363 0.5070
+    ## month:  900 PopLive: 12235 Brths:  19 Dths:   1 Mrgs:  8 Dvs:  0 Mq: 3942 Fq:0 ti1: 0.5 ti2: 0.011034 0.7101
+    ## month: 1000 PopLive: 13444 Brths:  15 Dths:   2 Mrgs:  6 Dvs:  0 Mq: 4044 Fq:0 ti1: 0.7 ti2: 0.007067 0.4321
+    ## month: 1100 PopLive: 14284 Brths:  13 Dths:   7 Mrgs:  8 Dvs:  0 Mq: 4072 Fq:0 ti1: 0.8 ti2: 0.007183 0.4332
+    ## month: 1200 PopLive: 14635 Brths:  16 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3985 Fq:0 ti1: 1.0 ti2: 0.008143 0.5128
+    ## month: 1300 PopLive: 14510 Brths:   7 Dths:  15 Mrgs:  3 Dvs:  0 Mq: 3873 Fq:0 ti1: 1.2 ti2: 0.006207 0.4138
+    ## month: 1400 PopLive: 14130 Brths:   8 Dths:  21 Mrgs:  4 Dvs:  0 Mq: 3812 Fq:0 ti1: 1.3 ti2: 0.008038 0.5531
+    ## month: 1500 PopLive: 13533 Brths:  10 Dths:  14 Mrgs:  1 Dvs:  0 Mq: 3688 Fq:0 ti1: 1.5 ti2: 0.011165 0.8209
+    ## month: 1600 PopLive: 13087 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3628 Fq:0 ti1: 1.6 ti2: 0.007096 0.5391
+    ## month: 1700 PopLive: 12777 Brths:  18 Dths:  15 Mrgs:  7 Dvs:  0 Mq: 3495 Fq:0 ti1: 1.8 ti2: 0.006721 0.5502
+    ## month: 1800 PopLive: 12312 Brths:   5 Dths:  13 Mrgs:  1 Dvs:  0 Mq: 3401 Fq:0 ti1: 1.9 ti2: 0.004863 0.4204
     ## 
     ## 
     ## Socsim Main Done
     ## Socsim Done.
-    ## [1] "restore previous working dir: U:/SOCSIM/rsocsim_workshop_paa"
+    ## [1] "restore previous working dir: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa"
 
     ## [1] 1
 
@@ -383,7 +383,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -391,7 +391,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
 Let’s have a glimpse on the simulated population and marriage files.
 
@@ -411,13 +411,13 @@ death (dod, or 0 if alive at end of simulation) and fertility multiplier
 head(opop)
 ```
 
-    ##   pid fem group nev dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
-    ## 1   1   1     1  65 806   0   0      0      0     0     0     1 1662 0.172002
-    ## 2   2   0     1  65 760   0   0      0      0     0     0     1 1826 0.000000
-    ## 3   3   1     1  65 763   0   0      0      0     0     0     1 1689 0.605228
-    ## 4   4   0     1  65 955   0   0      0      0 23904  1959     3 2041 0.000000
-    ## 5   5   1     1  65 923   0   0      0      0 22593  2018     3 1871 0.701332
-    ## 6   6   0     1  65 790   0   0      0      0 21265  1139     4 1394 0.000000
+    ##   pid fem group nev  dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
+    ## 1   1   1     1  65 1014   0   0      0      0 27743   444     3 1869 1.767931
+    ## 2   2   0     1  65  695   0   0      0      0     0     0     1 1687 0.000000
+    ## 3   3   1     1  65 1049   0   0      0      0 28577  2553     4 1929 0.706973
+    ## 4   4   1     1  65  732   0   0      0      0     0     0     1 1713 1.581888
+    ## 5   5   1     1  65 1165   0   0      0      0 31080  5675     3 2091 1.629917
+    ## 6   6   1     1  65  725   0   0      0      0     0     0     1 1610 2.031059
 
 The marriage file (.omar) contains one record for each marriage. Each
 marriage record provides the following information: marriage id number
@@ -431,13 +431,13 @@ husband’s next most recent prior marriage (hprior).
 head(omar)
 ```
 
-    ##   mid  wpid hpid dstart dend rend wprior hprior
-    ## 1   1  9289 7228   1201 2112    3      0      0
-    ## 2   2  6989 4799   1201 1784    3      0      0
-    ## 3   3   104 9607   1201 1386    3      0      0
-    ## 4   4  4302 9271   1201 1576    3      0      0
-    ## 5   5  4155 2676   1201 1234    3      0      0
-    ## 6   6 10294   59   1201 1224    3      0      0
+    ##   mid  wpid  hpid dstart dend rend wprior hprior
+    ## 1   1  6168 16272   1201 1996    3      0      0
+    ## 2   2 18801  4054   1201 1642    3      0      0
+    ## 3   3 10997  9266   1201 1461    3      0      0
+    ## 4   4 17859  4607   1201 1533    3      0      0
+    ## 5   5  5490   522   1201 1772    3      0      0
+    ## 6   6  1693  1802   1201 1373    3      0      0
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -676,10 +676,11 @@ others, based on the information we have in SOCSIM (and some may be
 impossible to find). When identifying kin, we use lateral kin
 relationships—such as parents and children–or affinal kin
 relationships—such as spouses. This is the principle behind the
-retrieve_kin function included in this package: since this function can
-take a while to run, we won’t discuss it in this workshop, but you are
-welcome to look more carefully at the source code and think about
-extensions you could write to make it more useful to your work.
+retrieve_kin function included in this package, which can be used to
+identify kin from a variety of kin relationships (parents, grandparents,
+spouses, children, and much more). You can read the full documentation
+for this function by typing in \`\`?retrieve_kin’’ into your RStudio
+console.
 
 In addition to enabling us to more easily identify networks, SOCSIM also
 provides us with valuable information about the timing of vital events,
@@ -692,17 +693,20 @@ many more possible ways to use SOCSIM to study these and other questions
 about kinship dynamics.
 
 In previous research, SOCSIM has been especially helpful for studying
-kin loss in connection with mortality change (include citations). Here
-we will focus on a simple example, changes in the probability of
-experiencing the loss of a parent over time. We will define as our
-reference group children aged 0-17 and alive in a given year: thus, the
-sample frame will change in each year.
+kin loss in connection with mortality change Snyder et al. (2022). Here
+we will focus on a simple example, changes in the rate of experiencing
+the loss of a relative over time. We will define as our reference group
+women aged 25-39 and alive in a given year: thus, the sample frame will
+change in each year. Note that the denominator is all women, not just
+those with a relative alive.
 
 In our code, we will approach this by writing a function that we will
 loop over each year of interest. The function will take in a year, look
 for the individuals of the relevant age who are alive that year,
-identify the years of death of their parents, and then calculate the
-proportion of our sample who experienced a loss.
+identify the years of death of their kin, and then calculate the
+proportion of our sample who experienced a loss. The code is a
+simplified version of functions used in a previous research paper
+(Snyder et al. 2022).
 
 ### 3.1. Getting our estimates
 
@@ -725,7 +729,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 #We won't use the omar today, but you can use it when investigating affinal kin
@@ -744,74 +748,111 @@ opop <- opop %>%
   mutate(dod = if_else(dod == 0, last_month, dod)) %>%
   #Dates of birth and death in years for both individual and parents
   mutate(dob_year = asYr(dob, last_month=last_month, final_sim_year=final_sim_year),
-         dod_year = asYr(dod, last_month=last_month, final_sim_year=final_sim_year), 
-         mom_dod_year = dod_year[match(mom, pid)],
-         pop_dod_year = dod_year[match(pop, pid)])
+         dod_year = asYr(dod, last_month=last_month, final_sim_year=final_sim_year))
 ```
 
 Now that we’ve generated the variables we want, let’s create a simple
 function that we can loop through.
 
 ``` r
-#Find sample population: children aged 0-17 in 2020
-getKinLoss <- function(year_of_interest, opop = opop){
-data <- opop %>%
+#Estimate annual kin loss for women aged 25-39 in a particular year
+getKinLoss <- function(year_of_interest, 
+                       opop = opop, omar = omar){
+pid_data <- opop %>%
   #Remove those not alive in the year of interest
   filter(data.table::between(lower = dob_year, upper = dod_year, 
-                             year_of_interest, incbounds = FALSE)) %>%
+                             year_of_interest, incbounds = FALSE),
+  #Filter to women
+         fem == 1) %>%
   #Find the age of individuals alive
   mutate(age = year_of_interest - dob_year) %>%
-  filter(age <= 17) %>%
-  #Find individuals who experienced a parental death
-  mutate(mom_death = (mom_dod_year == year_of_interest),
-         pop_death = (pop_dod_year == year_of_interest)) %>%
-  #Find proportions
-  summarize(mom_loss = 100*mean(mom_death),
-            pop_loss = 100*mean(pop_death)) %>%
-  mutate(year = year_of_interest)
-return(data)
+  #Filter to women aged 25-39
+  filter(data.table::between(lower = 25, upper = 39, age, 
+                             incbounds = FALSE))
+#Find vector of person IDs
+pid_vec <- pid_data$pid
+
+#Use the built-in retrieve_kin function
+#We will not identify extended kin relationships (extra_kintypes)
+#Or separate kin by sex, but both can be estimated
+kin <- rsocsim::retrieve_kin(opop = opop, omar = omar, pid = pid_vec, 
+             extra_kintypes = NULL, kin_by_sex = FALSE)
+
+#From retrieve_kin, we get a list of lists named after the type of kin
+#We loop over all types of kin included
+temp <- bind_rows(lapply(1:length(kin), function(x) {
+#Find IDs of kin
+kin2 <- unlist(kin[[x]], use.names = FALSE)
+#Attach associated person IDs
+names(kin2) <- rep(pid_vec, unlist(lapply(kin[[x]], length)))
+#Now find the years of death of kin
+attr(kin2, "kin.dod.year") <- opop$dod_year[match(kin2, opop$pid)]
+#And use that to find which kin have died in this year
+attr(kin2, "kin.death.year_of_interest") <- 
+  if_else(attr(kin2, "kin.dod.year") %in% year_of_interest, TRUE, FALSE)
+
+#Find the number of individuals who have lost a relative
+pid.losekin <- length(unique(names(kin2[attr(kin2, "kin.death.year_of_interest") 
+                                        == TRUE])))
+#Find the total number of individuals
+pid.total <- length(pid_vec)
+
+#Generate output as a tibble
+output <- tibble(kintype = names(kin[x]),
+                 year = year_of_interest,
+                 n_total = pid.total,
+                 n_losekin = pid.losekin,
+                 pc_losekin = 100*(n_losekin/n_total))
+return(output)
+}))
 }
 ```
 
 Now loop through this function to generate a tibble with our data for
-each year.
+each year. To limit the time this code will take to run, we’ll look
+estimate kin loss at 5-year intervals between 1950 and 2010.
 
 ``` r
 #Loop through and bind rows
-full_data <- bind_rows(lapply(1933:2020, 
+full_data <- bind_rows(lapply(seq.int(from = 1950, to = 2010, 
+                                      by = 5), 
                               function(x) getKinLoss(year_of_interest = x, 
-                                                      opop = opop)))
+                                                      opop = opop, 
+                                                     omar = omar)))
 ```
 
 ### 3.2. Examining our estimates
 
 ``` r
-#Plot this data as a smoothed trendline
+#Plot this data by year
 full_data %>%
-  #Pivot the data to long format
-  pivot_longer(cols = c(mom_loss, pop_loss), 
-               names_to = "type",
-               values_to = "pc_loss") %>%
-  mutate(type = if_else(type == "mom_loss", "Mother", "Father")) %>%
-  ggplot(aes(x = year, y = pc_loss, color = type)) + 
-  geom_smooth(formula = y ~ x, method = "loess", se = FALSE) +
-  labs(x = "Year", y = "% of children aged 0-17 losing a parent", 
-       color = "Parent lost") +
+  #Clean names of kin
+  mutate(kintype = if_else(kintype == "ggparents", "Great-grandparents", 
+                           if_else(kintype == "gparents", "Grandparents", 
+                                   if_else(kintype == "gchildren", "Grandchildren",
+                                           kintype))),
+         kintype = str_to_title(kintype)) %>%
+  #Create plot
+  ggplot(aes(x = year, y = pc_losekin, color = kintype)) + 
+  geom_line() +
+  labs(x = "Year", y = "% of women aged 25-39 who lose a relative", 
+       color = "Type of kin lost") +
   #Fix the axes
   scale_x_continuous(expand = c(0,0)) + 
-  scale_y_continuous(limits = c(0, NA), expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0)) +
   #Set a theme
   theme_bw() 
 ```
 
 <img src="README_files/figure-gfm/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
-These results show us how rates of parental loss have changed for
-children over time: as we would expect, they have decreased with
-declining mortality. Since fathers are expected to be older than
-mothers, based on SOCSIM’s marriage matching model of age differences
-between spouses, we would expect higher mortality for them, and higher
-rates of bereavement for their children as a result.
+These results show us how rates of parental loss have changed for women
+over time: as we would expect for this age group, the highest rates of
+kin loss would be for grandparents and parents. The increasing rate of
+grandparental loss over time, along with a similar trend for
+great-grandparents, could relate to increasing life expectancies during
+this period: as grandparents live to older ages, the chance that this
+loss would be experienced even earlier diminishes.
 
 **To discuss:** How do you think you could extend this analysis to look
 at other kin? What are you interested in learning about, and how do you
