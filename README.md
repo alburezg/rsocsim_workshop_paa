@@ -21,13 +21,13 @@ Association of America (PAA); New Orleans, Apr 12, 2023
 
 Socsim was originally developed for Unix at UC Berkeley (E. Hammel et
 al. 1976), where it has been maintained for decades. The current release
-of rsocsim aims to be OS-agnostic and, for the most part,
-back-compatible with the original Socsim distribution. See
-<https://lab.demog.berkeley.edu/socsim/> and especially
-<https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf>.
+of rsocsim aims to be Operating System-agnostic and, for the most part,
+back-compatible with the original Socsim distribution. For more on the
+original SOCSIM, see <https://lab.demog.berkeley.edu/socsim/> and
+especially Mason (2016).
 
 The following description of SOCSIM was adapted from the Supplementary
-Materials of (Alburez‐Gutierrez, Mason, and Zagheni 2021). SOCSIM is an
+Materials of Alburez‐Gutierrez, Mason, and Zagheni (2021). SOCSIM is an
 open source and extensible demographic microsimulation program. It is
 written in the C programming language and relies heavily on arrays of
 linked lists to keep track of kinship relationships and to store
@@ -48,18 +48,22 @@ etc.). Each event for which the individual is at risk is modeled as a
 piece-wise exponential distribution. The waiting time until each event
 occurs is randomly generated according to the associated demographic
 rates. The individual’s next event is the one with the shortest waiting
-time. At the end of the simulation, population files that contain a list
-of everyone who has ever lived in the population are created. In these
+time.
+
+At the end of the simulation, population files that contain a list of
+everyone who has ever lived in the population are created. In these
 files, each individual is an observation in a rectangular data file with
 records of demographic characteristics for the individual, and
 identification numbers for key kinship relations. SOCSIM models “closed”
-populations. Individuals may enter and exit the simulation only by
+populations: Individuals may enter and exit the simulation only by
 (simulated) birth and death.
 
 SOCSIM has been used extensively in social science research to study,
-among other things, dynamics of kin availability Verdery and Margolis
-(2017), generational overlap Alburez‐Gutierrez, Mason, and Zagheni
-(2021), and kin loss Snyder et al. (2022).
+among other things, dynamics of kin availability (E. A. Hammel 2005;
+Kenneth W. Wachter 1997; Verdery and Margolis 2017), generational
+overlap (Margolis and Verdery 2019; Alburez‐Gutierrez, Mason, and
+Zagheni 2021), and kin loss (Zagheni 2011; Verdery et al. 2020; Snyder
+et al. 2022).
 
 # 1. Setup
 
@@ -109,7 +113,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_7969"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_9999"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -146,18 +150,18 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 1.1 ti2: 0.020000 1.4391
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 1.4 ti2: 0.021000 1.3878
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.7 ti2: 0.017000 1.0462
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 2.1 ti2: 0.013000 0.7607
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 2.5 ti2: 0.025000 1.4621
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.9 ti2: 0.019000 1.1875
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 3.4 ti2: 0.035000 2.3118
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 4.0 ti2: 0.024000 1.7103
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 4.6 ti2: 0.019000 1.4038
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 5.0 ti2: 0.022000 1.7042
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 5.4 ti2: 0.015000 1.2705
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 5.8 ti2: 0.028000 2.6106
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.6 ti2: 0.011000 0.7915
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 1.0 ti2: 0.025000 1.6521
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.5 ti2: 0.019000 1.1693
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.8 ti2: 0.017000 0.9947
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 2.2 ti2: 0.021000 1.2282
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 2.6 ti2: 0.012000 0.7500
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 3.0 ti2: 0.025000 1.6513
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 3.4 ti2: 0.012000 0.8552
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 3.8 ti2: 0.023000 1.6993
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 4.2 ti2: 0.019000 1.4718
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 4.6 ti2: 0.016000 1.3552
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 4.9 ti2: 0.018000 1.6782
     ## 
     ## 
     ## Socsim Main Done
@@ -174,11 +178,13 @@ For more details on the package, the SOCSIM simulator, its history and
 applications, see `rsocsim`’s website:
 <https://mpidr.github.io/rsocsim/>.
 
-## 1.2. Other packages
+## 1.2. Install other packages
 
-Let’s load the packages we will need for this workshop:
+We will need these other for this workshop (if you don’t have them
+already, please install them):
 
 ``` r
+# devtools::install_github("MPIDR/rsocsim")
 library(rsocsim)
 # install.packages("tidyverse")
 library(tidyverse) #For data wrangling
@@ -192,6 +198,15 @@ library(data.table)
 
 > Instructor: Liliana P. Calderón-Bernal,
 > <https://twitter.com/lp_calderonb>
+
+### Objectives
+
+1.  Use data from the Human Fertility Database (HFD) and Human Mortality
+    Database (HMD) to create a simulation from scratch
+2.  Run a simple SOCSIM simulation for the USA
+3.  Estimate age-specific fertility and mortality rates using the
+    SOCSIM-generated microdata
+4.  Check that the ‘output’ SOCSIM rates match the ‘input’ HFD/HMD rates
 
 ## 2.1. The simulation: supervisory and rate files
 
@@ -253,13 +268,12 @@ rates, we assume that they are constant over the year and divide them by
 for single and married women in the rate files. Other marital status
 (divorced, widowed, cohabiting) follow SOCSIM’s rate default rules.
 
-To write the input fertility files, please download from the [HFD
-website](https://www.humanfertility.org/), the Period Age-specific
-fertility rates all birth orders combined, by calendar year and age for
-the desired country (asfrRR), in our case the U.S.A. Please save it as a
-.txt file called USAasfrRR.txt in the same project folder. If you have
-problems downloading the data, you can use the file USAasfrRR provided
-in this repository.
+<!-- To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file USAasfrRR provided in this repository.  -->
+
+For this exercise, we will use Period Age-specific fertility rates all
+birth orders combined, by calendar year and age for the desired country
+(saved in `Input/asfrRR.txt`), downloaded from the [HFD
+website](https://www.humanfertility.org/).
 
 The function below converts HFD data to SOCSIM format following the
 procedure explained above. To run it, type the name of the country as
@@ -293,13 +307,12 @@ The probabilities of death are identical for all marital status of each
 sex, and are only specified for single women and single men in the rate
 files. Other marital status will follow SOCSIM’s rate default rules.
 
-To write the input mortality files, please download from the [HMD
-website](https://www.mortality.org/), the period life tables 1x1 (Age
-interval × Year interval) for females and males for the desired country,
-in our case the U.S.A. Please save them as a .txt files called
-ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you
-have problems downloading the data, you can use the files provided in
-this repository.
+<!-- To write the input mortality files, please download from the [HMD website](https://www.mortality.org/), the period life tables 1x1 (Age interval × Year interval) for females and males for the desired country, in our case the U.S.A. Please save them as a .txt files called ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you have problems downloading the data, you can use the files provided in this repository.  -->
+
+To write the input mortality files, please use the file
+`Input/ltfper_1x1.txt` (period life tables 1x1, Age interval × Year
+interval, for females and males for the U.S.A) downloaded from the [HMD
+website](https://www.mortality.org/).
 
 The function below converts HMD data to SOCSIM format following the
 procedure explained above. To run it, type the name of the country as
@@ -412,12 +425,12 @@ head(opop)
 ```
 
     ##   pid fem group nev  dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
-    ## 1   1   0     1  65 1096   0   0      0      0     0     0     1 1821 0.000000
-    ## 2   2   1     1  65  632   0   0      0      0     0     0     1 1516 0.172002
-    ## 3   3   1     1  65 1167   0   0      0      0 30517  5338     3 2072 0.605228
-    ## 4   4   1     1  65  635   0   0      0      0     0     0     1 1523 0.701332
-    ## 5   5   0     1  65  683   0   0      0      0 21164  1077     4 1470 0.000000
-    ## 6   6   0     1  65  911   0   0      0      0 21459   296     4 1670 0.000000
+    ## 1   1   1     1  65  778   0   0      0      0     0     0     1 1509 0.172002
+    ## 2   2   0     1  65 1058   0   0      0      0     0     0     1 1767 0.000000
+    ## 3   3   1     1  65  892   0   0      0      0 25645  1311     3 1830 0.605228
+    ## 4   4   1     1  65  936   0   0      0      0 26687  1559     4 1769 0.701332
+    ## 5   5   0     1  65 1004   0   0      0      0     0     0     1 1265 0.000000
+    ## 6   6   1     1  65 1104   0   0      0      0     0     0     1 1978 0.134275
 
 The marriage file (.omar) contains one record for each marriage. Each
 marriage record provides the following information: marriage id number
@@ -432,12 +445,12 @@ head(omar)
 ```
 
     ##   mid  wpid  hpid dstart dend rend wprior hprior
-    ## 1   1   651  7389   1201 1637    3      0      0
-    ## 2   2    54  2350   1201 1591    3      0      0
-    ## 3   3  6608   316   1201 1897    3      0      0
-    ## 4   4 15346  9714   1201 1630    3      0      0
-    ## 5   5  4501 17168   1201 1805    3      0      0
-    ## 6   6  8842 10667   1201 1739    3      0      0
+    ## 1   1  6839 12061   1201 1839    3      0      0
+    ## 2   2 17034 11844   1201 1624    3      0      0
+    ## 3   3 11940  2740   1201 1758    3      0      0
+    ## 4   4  2082  2404   1201 1622    3      0      0
+    ## 5   5 19704 12418   1201 1507    3      0      0
+    ## 6   6 19930 15448   1201 1802    3      0      0
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -661,6 +674,13 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
 
 > Instructor: Mallika Snyder, <https://twitter.com/mallika_snyder>
 
+### Objectives
+
+1.  Learn how to analyze SOCSIM output
+2.  Understand how SOCSIM records kin ties
+3.  Use SOCSIM output from the previous section to describe levels of
+    family bereavement in the USA
+
 After running our simulation code, SOCSIM provides us with a synthetic
 genealogy for the entire population. We know when people are born, when
 they die, when they marry, and who their parents and spouse are. What
@@ -676,11 +696,10 @@ others, based on the information we have in SOCSIM (and some may be
 impossible to find). When identifying kin, we use lateral kin
 relationships—such as parents and children–or affinal kin
 relationships—such as spouses. This is the principle behind the
-retrieve_kin function included in this package, which can be used to
+`retrieve_kin` function included in this package, which can be used to
 identify kin from a variety of kin relationships (parents, grandparents,
 spouses, children, and much more). You can read the full documentation
-for this function by typing in \`\`?retrieve_kin’’ into your RStudio
-console.
+for this function by typing `?retrieve_kin` into your RStudio console.
 
 In addition to enabling us to more easily identify networks, SOCSIM also
 provides us with valuable information about the timing of vital events,
@@ -693,12 +712,12 @@ many more possible ways to use SOCSIM to study these and other questions
 about kinship dynamics.
 
 In previous research, SOCSIM has been especially helpful for studying
-kin loss in connection with mortality change Snyder et al. (2022). Here
-we will focus on a simple example, changes in the rate of experiencing
-the loss of a relative over time. We will define as our reference group
-women aged 25-39 and alive in a given year: thus, the sample frame will
-change in each year. Note that the denominator is all women, not just
-those with a relative alive.
+kin loss in connection with mortality change (Zagheni 2011; Verdery et
+al. 2020; Snyder et al. 2022). Here we will focus on a simple example,
+changes in the rate of experiencing the loss of a relative over time. We
+will define as our reference group women aged 25-39 and alive in a given
+year: thus, the sample frame will change in each year. Note that the
+denominator is all women, not just those with a relative alive.
 
 In our code, we will approach this by writing a function that we will
 loop over each year of interest. The function will take in a year, look
@@ -732,8 +751,12 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
     ## [1] "read population file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
-#We won't use the omar today, but you can use it when investigating affinal kin
+## Read the omar file using the read_opop function
+omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup", 
+                           seed = "120423", suffix = "",  fn = NULL)
 ```
+
+    ## [1] "read marriage file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
 ``` r
 #Parameters specific to this simulation: will need to be changed
@@ -808,14 +831,14 @@ return(output)
 }
 ```
 
-Now loop through this function to generate a tibble with our data for
+Now loop through this function to generate a table with our data for
 each year. To limit the time this code will take to run, we’ll look
 estimate kin loss at 5-year intervals between 1950 and 2010.
 
 ``` r
 #Loop through and bind rows
 full_data <- bind_rows(lapply(seq.int(from = 1950, to = 2010, 
-                                      by = 5), 
+                                      by = 10), 
                               function(x) getKinLoss(year_of_interest = x, 
                                                       opop = opop, 
                                                      omar = omar)))
@@ -860,8 +883,8 @@ think SOCSIM could help you in your work?
 
 # 4. Learn more
 
-The ‘SOCSIM Oversimplified’ manual written by Carl Mason is a great
-starting point to learn more about how SOCSIM works:
+The ‘SOCSIM Oversimplified’ manual written by Carl Mason (2016) is a
+great starting point to learn more about how SOCSIM works:
 <https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf>.
 
 You can find more information about the `rsocsim` in the package’s
@@ -869,7 +892,9 @@ website: <https://mpidr.github.io/rsocsim/>, including documentation for
 the functions currently available and work in progress.
 
 We are working on preparing extended vignettes with exercises and
-examples for using `rsocsim`. Follow us on twitter for updates!
+examples for using `rsocsim`. Follow us on twitter for updates. Pleas
+also get in touch if you’d like to use `rsocsim` for your work; we want
+to hear from you!
 
 - Tom Theile: <https://twitter.com/TheileTom>
 - Diego Alburez: <https://twitter.com/d_alburez>

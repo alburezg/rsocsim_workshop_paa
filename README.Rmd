@@ -21,11 +21,13 @@ options(scipen=999999)
 
 ## Introduction: What is SOCSIM and how does it work?
 
-Socsim was originally developed for Unix at UC Berkeley [@hammel_socsim_1976], where it has been maintained for decades. The current release of rsocsim aims to be OS-agnostic and, for the most part, back-compatible with the original Socsim distribution. See https://lab.demog.berkeley.edu/socsim/ and especially https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
+Socsim was originally developed for Unix at UC Berkeley [@hammel_socsim_1976], where it has been maintained for decades. The current release of rsocsim aims to be Operating System-agnostic and, for the most part, back-compatible with the original Socsim distribution. For more on the original SOCSIM, see https://lab.demog.berkeley.edu/socsim/ and especially @mason2016socsim.
 
-The following description of SOCSIM was adapted from the Supplementary Materials of [@alburezgutierrez_sandwich_2021]. SOCSIM is an open source and extensible demographic microsimulation program. It is written in the C programming language and relies heavily on arrays of linked lists to keep track of kinship relationships and to store information about simulated individuals. The simulator takes as input initial population files and monthly age-specific fertility and mortality demographic rates. The individual is the unit of analysis of the simulator. Each person is subject to a set of rates, expressed as monthly probabilities of events, given certain demographic characteristics, like age and sex. Every month, each individual faces the risk of experiencing a number of events, including childbirth, death, and marriage. The selection of the event and the waiting time until the event occurs are determined stochastically using a competing risk model. Some other constraints are included in the simulation program in order to draw events only for individuals that are eligible for the events (e.g. to allow for a minimum interval of time between births from the same mother, to avoid social taboos such as incest, etc.). Each event for which the individual is at risk is modeled as a piece-wise exponential distribution. The waiting time until each event occurs is randomly generated according to the associated demographic rates. The individual’s next event is the one with the shortest waiting time. At the end of the simulation, population files that contain a list of everyone who has ever lived in the population are created. In these files, each individual is an observation in a rectangular data file with records of demographic characteristics for the individual, and identification numbers for key kinship relations. SOCSIM models “closed” populations. Individuals may enter and exit the simulation only by (simulated) birth and death.
+The following description of SOCSIM was adapted from the Supplementary Materials of @alburezgutierrez_sandwich_2021. SOCSIM is an open source and extensible demographic microsimulation program. It is written in the C programming language and relies heavily on arrays of linked lists to keep track of kinship relationships and to store information about simulated individuals. The simulator takes as input initial population files and monthly age-specific fertility and mortality demographic rates. The individual is the unit of analysis of the simulator. Each person is subject to a set of rates, expressed as monthly probabilities of events, given certain demographic characteristics, like age and sex. Every month, each individual faces the risk of experiencing a number of events, including childbirth, death, and marriage. The selection of the event and the waiting time until the event occurs are determined stochastically using a competing risk model. Some other constraints are included in the simulation program in order to draw events only for individuals that are eligible for the events (e.g. to allow for a minimum interval of time between births from the same mother, to avoid social taboos such as incest, etc.). Each event for which the individual is at risk is modeled as a piece-wise exponential distribution. The waiting time until each event occurs is randomly generated according to the associated demographic rates. The individual’s next event is the one with the shortest waiting time. 
 
-SOCSIM has been used extensively in social science research to study, among other things, dynamics of kin availability [@hammel_demographic_2005,@wachter_kinship_1997,@verdery_projections_2017], generational overlap [@margolis_cohort_2019,@alburezgutierrez_sandwich_2021], and kin loss [@zagheni_impact_2011,@verdery_tracking_2020,@snyder_estimates_2022].
+At the end of the simulation, population files that contain a list of everyone who has ever lived in the population are created. In these files, each individual is an observation in a rectangular data file with records of demographic characteristics for the individual, and identification numbers for key kinship relations. SOCSIM models “closed” populations: Individuals may enter and exit the simulation only by (simulated) birth and death.
+
+SOCSIM has been used extensively in social science research to study, among other things, dynamics of kin availability [@hammel_demographic_2005; @wachter_kinship_1997; @verdery_projections_2017], generational overlap [@margolis_cohort_2019; @alburezgutierrez_sandwich_2021], and kin loss [@zagheni_impact_2011; @verdery_tracking_2020; @snyder_estimates_2022].
 
 # 1. Setup
 
@@ -70,11 +72,12 @@ You should see a long output in the console, at the end of which is the message 
 
 For more details on the package, the SOCSIM simulator, its history and applications, see `rsocsim`'s website: https://mpidr.github.io/rsocsim/.
 
-## 1.2. Other packages
+## 1.2. Install other packages
 
-Let's load the packages we will need for this workshop: 
+We will need these other for this workshop (if you don't have them already, please install them): 
 
 ```{r, warning=F, message=FALSE}
+# devtools::install_github("MPIDR/rsocsim")
 library(rsocsim)
 # install.packages("tidyverse")
 library(tidyverse) #For data wrangling
@@ -88,6 +91,12 @@ library(data.table)
 
 > Instructor: Liliana P. Calderón-Bernal, https://twitter.com/lp_calderonb
 
+### Objectives
+
+1. Use data from the Human Fertility Database (HFD) and Human Mortality Database (HMD) to create a simulation from scratch
+1. Run a simple SOCSIM simulation for the USA
+1. Estimate age-specific fertility and mortality rates using the SOCSIM-generated microdata
+1. Check that the 'output' SOCSIM rates match the 'input' HFD/HMD rates
 
 ## 2.1. The simulation: supervisory and rate files
 
@@ -115,7 +124,8 @@ For the input Age-Specific Female Fertility Rates, we keep the whole age range i
 
 To convert the HFD annual fertility rates to 'SOCSIM' monthly fertility rates, we assume that they are constant over the year and divide them by 12 months. The are identical for all marital status, but are specified for single and married women in the rate files. Other marital status (divorced, widowed, cohabiting) follow SOCSIM's rate default rules. 
 
-To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file USAasfrRR provided in this repository. 
+<!-- To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file USAasfrRR provided in this repository.  -->
+For this exercise, we will use Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (saved in `Input/asfrRR.txt`), downloaded from the [HFD website](https://www.humanfertility.org/).
 
 The function below converts HFD data to SOCSIM format following the procedure explained above. To run it, type the name of the country as used in HFD (here, "USA").
 
@@ -131,7 +141,8 @@ We use the probabilities of death (qx) by sex from from  [HMD](https://www.morta
 
 To convert the annual HMD probabilities to monthly 'SOCSIM' probabilities, we assume that the probability of dying is constant over the year and use the formula $1-(1-_nq_x)^{1/n}$ proposed by Kenneth Watcher [@wachter2014essential, p. 53]. For the open-ended age interval 110+, monthly probabilities are equal to 1/12. The probabilities of death are identical for all marital status of each sex, and are only specified for single women and single men in the rate files. Other marital status will follow SOCSIM's rate default rules. 
 
-To write the input mortality files, please download from the [HMD website](https://www.mortality.org/), the period life tables 1x1 (Age interval × Year interval) for females and males for the desired country, in our case the U.S.A. Please save them as a .txt files called ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you have problems downloading the data, you can use the files provided in this repository. 
+<!-- To write the input mortality files, please download from the [HMD website](https://www.mortality.org/), the period life tables 1x1 (Age interval × Year interval) for females and males for the desired country, in our case the U.S.A. Please save them as a .txt files called ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you have problems downloading the data, you can use the files provided in this repository.  -->
+To write the input mortality files, please use the file `Input/ltfper_1x1.txt` (period life tables 1x1, Age interval × Year interval, for females and males for the U.S.A) downloaded from the [HMD website](https://www.mortality.org/).
 
 The function below converts HMD data to SOCSIM format following the procedure explained above. To run it, type the name of the country as used in HMD (here, "USA").
 
@@ -421,16 +432,22 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
 
 > Instructor: Mallika Snyder, https://twitter.com/mallika_snyder
 
+### Objectives
+
+1. Learn how to analyze SOCSIM output
+1. Understand how SOCSIM records kin ties
+1. Use SOCSIM output from the previous section to describe levels of family bereavement in the USA
+
 After running our simulation code, SOCSIM provides us with a synthetic genealogy for the entire population. We know when people are born, when they die, when they marry, and who their parents and spouse are. What can we do with this information?
 
 
-One advantage of using a tool like SOCSIM is that we can identify extended kin networks, especially for more distant kin that would be hard to link together using a census or a household survey. For example, how straightforward would it be to find an individual's great-grandmother in a household survey, assuming odds of co-residence are not high? Of course, some kinds of kin are easier to identify than others, based on the information we have in SOCSIM (and some may be impossible to find). When identifying kin, we use lateral kin relationships---such as parents and children--or affinal kin relationships---such as spouses. This is the principle behind the retrieve_kin function included in this package, which can be used to identify kin from a variety of kin relationships (parents, grandparents, spouses, children, and much more). You can read the full documentation for this function by typing in ``?retrieve_kin'' into your RStudio console.
+One advantage of using a tool like SOCSIM is that we can identify extended kin networks, especially for more distant kin that would be hard to link together using a census or a household survey. For example, how straightforward would it be to find an individual's great-grandmother in a household survey, assuming odds of co-residence are not high? Of course, some kinds of kin are easier to identify than others, based on the information we have in SOCSIM (and some may be impossible to find). When identifying kin, we use lateral kin relationships---such as parents and children--or affinal kin relationships---such as spouses. This is the principle behind the `retrieve_kin` function included in this package, which can be used to identify kin from a variety of kin relationships (parents, grandparents, spouses, children, and much more). You can read the full documentation for this function by typing `?retrieve_kin` into your RStudio console.
  
  
 In addition to enabling us to more easily identify networks, SOCSIM also provides us with valuable information about the timing of vital events, like births, deaths, and marriages, in these networks. This can help us connect changes in the vital rates that go into SOCSIM to changes in the networks that our simulated people have available to them, often at a very fine temporal level (months or years). In this workshop, we will focus on just one very simple example--parental bereavement--but there are many more possible ways to use SOCSIM to study these and other questions about kinship dynamics.
 
 
-In previous research, SOCSIM has been especially helpful for studying kin loss in connection with mortality change [@zagheni_impact_2011,@verdery_tracking_2020,@snyder_estimates_2022]. Here we will focus on a simple example, changes in the rate of experiencing the loss of a relative over time. We will define as our reference group women aged 25-39 and alive in a given year: thus, the sample frame will change in each year. Note that the denominator is all women, not just those with a relative alive.
+In previous research, SOCSIM has been especially helpful for studying kin loss in connection with mortality change [@zagheni_impact_2011; @verdery_tracking_2020; @snyder_estimates_2022]. Here we will focus on a simple example, changes in the rate of experiencing the loss of a relative over time. We will define as our reference group women aged 25-39 and alive in a given year: thus, the sample frame will change in each year. Note that the denominator is all women, not just those with a relative alive.
 
 In our code, we will approach this by writing a function that we will loop over each year of interest. The function will take in a year, look for the individuals of the relevant age who are alive that year, identify the years of death of their kin, and then calculate the proportion of our sample who experienced a loss. The code is a simplified version of functions used in a previous research paper [@snyder_estimates_2022].
 
@@ -455,7 +472,9 @@ Now we can load the data and define a few relevant parameters.
 ## Read the opop file using the read_opop function
 opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup", 
                            seed = "120423", suffix = "",  fn = NULL)
-#We won't use the omar today, but you can use it when investigating affinal kin
+## Read the omar file using the read_opop function
+omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup", 
+                           seed = "120423", suffix = "",  fn = NULL)
 ```
 
 ```{r}
@@ -530,13 +549,13 @@ return(output)
 }
 ```
 
-Now loop through this function to generate a tibble with our data for each year.
+Now loop through this function to generate a table with our data for each year.
 To limit the time this code will take to run, we'll look estimate kin loss at 5-year intervals between 1950 and 2010.
 
 ```{r}
 #Loop through and bind rows
 full_data <- bind_rows(lapply(seq.int(from = 1950, to = 2010, 
-                                      by = 5), 
+                                      by = 10), 
                               function(x) getKinLoss(year_of_interest = x, 
                                                       opop = opop, 
                                                      omar = omar)))
@@ -571,11 +590,11 @@ These results show us how rates of parental loss have changed for women over tim
 
 # 4. Learn more
 
-The 'SOCSIM Oversimplified' manual written by Carl Mason is a great starting point to learn more about how SOCSIM works: https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf. 
+The 'SOCSIM Oversimplified' manual written by Carl @mason2016socsim is a great starting point to learn more about how SOCSIM works: https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf. 
 
 You can find more information about the `rsocsim` in the package's website: https://mpidr.github.io/rsocsim/, including documentation for the functions currently available and work in progress. 
 
-We are working on preparing extended vignettes with exercises and examples for using `rsocsim`. Follow us on twitter for updates!
+We are working on preparing extended vignettes with exercises and examples for using `rsocsim`. Follow us on twitter for updates. Pleas also get in touch if you'd like to use `rsocsim` for your work; we want to hear from you!
 
 - Tom Theile: https://twitter.com/TheileTom
 - Diego Alburez: https://twitter.com/d_alburez
