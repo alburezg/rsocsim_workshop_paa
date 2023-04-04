@@ -833,7 +833,7 @@ return(output)
 
 Now loop through this function to generate a table with our data for
 each year. To limit the time this code will take to run, we’ll look
-estimate kin loss at 5-year intervals between 1950 and 2010.
+estimate kin loss at 10-year intervals between 1950 and 2010.
 
 ``` r
 #Loop through and bind rows
@@ -877,8 +877,7 @@ great-grandparents, could relate to increasing life expectancies during
 this period: as grandparents live to older ages, the chance that this
 loss would be experienced even earlier diminishes.
 
-**To discuss:** How do you think you could extend this analysis to look
-at other kin? What are you interested in learning about, and how do you
+**To discuss:** What are you interested in learning about, and how do you
 think SOCSIM could help you in your work?
 
 # 4. Learn more
