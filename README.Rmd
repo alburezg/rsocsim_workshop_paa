@@ -441,15 +441,15 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
 After running our simulation code, SOCSIM provides us with a synthetic genealogy for the entire population. We know when people are born, when they die, when they marry, and who their parents and spouse are. What can we do with this information?
 
 
-One advantage of using a tool like SOCSIM is that we can identify extended kin networks, especially for more distant kin that would be hard to link together using a census or a household survey. For example, how straightforward would it be to find an individual's great-grandmother in a household survey, assuming odds of co-residence are not high? Of course, some kinds of kin are easier to identify than others, based on the information we have in SOCSIM (and some may be impossible to find). When identifying kin, we use lateral kin relationships---such as parents and children--or affinal kin relationships---such as spouses. This is the principle behind the `retrieve_kin` function included in this package, which can be used to identify kin from a variety of kin relationships (parents, grandparents, spouses, children, and much more). You can read the full documentation for this function by typing `?retrieve_kin` into your RStudio console.
+One advantage of using a tool like SOCSIM is that we can identify extended kin networks, especially for more distant kin that would be hard to link together using a census or a household survey. For example, how straightforward would it be to find an individual's great-grandmother in a household survey, assuming odds of co-residence are not high? Of course, some kinds of kin are easier to identify than others, based on the information we have in SOCSIM (and some may be impossible to find). When identifying kin, we use lateral kin relationships---such as parents and children--or affinal kin relationships---such as spouses. This is the principle behind the `retrieve_kin` function included in this package, which can be used to identify kin from a variety of kin relationships (parents, grandparents, spouses, children, and much more). You can read the full documentation for this function by typing `?retrieve_kin` into your RStudio console. An important note is that the kinship terms used in this function are currently North America-specific: other regions may have very different kinship systems, which may influence kin availability. 
  
  
-In addition to enabling us to more easily identify networks, SOCSIM also provides us with valuable information about the timing of vital events, like births, deaths, and marriages, in these networks. This can help us connect changes in the vital rates that go into SOCSIM to changes in the networks that our simulated people have available to them, often at a very fine temporal level (months or years). In this workshop, we will focus on just one very simple example--parental bereavement--but there are many more possible ways to use SOCSIM to study these and other questions about kinship dynamics.
+In addition to enabling us to more easily identify networks, SOCSIM also provides us with valuable information about the timing of vital events, like births, deaths, and marriages, in these networks. This can help us connect changes in the vital rates that go into SOCSIM to changes in the networks that our simulated people have available to them, often at a very fine temporal level (months or years). In this workshop, we will focus on just one example--kin loss--but there are many more possible ways to use SOCSIM to study these and other questions about kinship dynamics.
 
 
 In previous research, SOCSIM has been especially helpful for studying kin loss in connection with mortality change [@zagheni_impact_2011; @verdery_tracking_2020; @snyder_estimates_2022]. Here we will focus on a simple example, changes in the rate of experiencing the loss of a relative over time. We will define as our reference group women aged 25-39 and alive in a given year: thus, the sample frame will change in each year. Note that the denominator is all women, not just those with a relative alive.
 
-In our code, we will approach this by writing a function that we will loop over each year of interest. The function will take in a year, look for the individuals of the relevant age who are alive that year, identify the years of death of their kin, and then calculate the proportion of our sample who experienced a loss. The code is a simplified version of functions used in a previous research paper [@snyder_estimates_2022].
+In our code, we will approach this by writing a function that we will loop over each year of interest. The function will take in a year, look for the individuals of the relevant age who are alive that year, identify the years of death of their kin, and then calculate the proportion of our sample who experienced a loss. For further intuition, we will also calculate the share of women who had a relative alive in the previous year. The code is a simplified version of functions used in a previous research paper [@snyder_estimates_2022].
 
 
 
@@ -526,11 +526,25 @@ temp <- bind_rows(lapply(1:length(kin), function(x) {
 kin2 <- unlist(kin[[x]], use.names = FALSE)
 #Attach associated person IDs
 names(kin2) <- rep(pid_vec, unlist(lapply(kin[[x]], length)))
+#Find the years of birth of kin
+attr(kin2, "kin.dob.year") <- opop$dob_year[match(kin2, opop$pid)]
 #Now find the years of death of kin
 attr(kin2, "kin.dod.year") <- opop$dod_year[match(kin2, opop$pid)]
+#Use this to find which kin were alive in the previous year
+attr(kin2, "kin.alive.before.year_of_interest") <- 
+  if_else(data.table::between(lower = attr(kin2, "kin.dob.year"), 
+                              upper = attr(kin2, "kin.dod.year"), 
+                             (year_of_interest-1), NAbounds = NA, 
+                             incbounds = FALSE), 
+          TRUE, FALSE)
 #And use that to find which kin have died in this year
 attr(kin2, "kin.death.year_of_interest") <- 
   if_else(attr(kin2, "kin.dod.year") %in% year_of_interest, TRUE, FALSE)
+
+#Find the number of people who had a living relative in the previous year
+pid.withkin <- length(unique(names(kin2[attr(kin2,
+                                             "kin.alive.before.year_of_interest") 
+                                        == TRUE])))
 
 #Find the number of individuals who have lost a relative
 pid.losekin <- length(unique(names(kin2[attr(kin2, "kin.death.year_of_interest") 
@@ -543,7 +557,9 @@ output <- tibble(kintype = names(kin[x]),
                  year = year_of_interest,
                  n_total = pid.total,
                  n_losekin = pid.losekin,
-                 pc_losekin = 100*(n_losekin/n_total))
+                 n_withkin = pid.withkin,
+                 pc_losekin_total = 100*(n_losekin/n_total),
+                 pc_withkin = 100*(n_withkin/n_total))
 return(output)
 }))
 }
@@ -564,16 +580,22 @@ full_data <- bind_rows(lapply(seq.int(from = 1950, to = 2010,
 ### 3.2. Examining our estimates
 
 ```{r}
-#Plot this data by year
-full_data %>%
+#Clean this data slightly
+kinloss_data <- full_data %>%
   #Clean names of kin
   mutate(kintype = if_else(kintype == "ggparents", "Great-grandparents", 
                            if_else(kintype == "gparents", "Grandparents", 
                                    if_else(kintype == "gchildren", "Grandchildren",
                                            kintype))),
-         kintype = str_to_title(kintype)) %>%
-  #Create plot
-  ggplot(aes(x = year, y = pc_losekin, color = kintype)) + 
+         kintype = str_to_title(kintype)) 
+```
+
+Plot population-level kin loss over time. 
+
+```{r}
+kinloss_data %>% 
+ #Create plot
+  ggplot(aes(x = year, y = pc_losekin_total, color = kintype)) + 
   geom_line() +
   labs(x = "Year", y = "% of women aged 25-39 who lose a relative", 
        color = "Type of kin lost") +
@@ -584,7 +606,24 @@ full_data %>%
   theme_bw() 
 ```
 
-These results show us how rates of parental loss have changed for women over time: as we would expect for this age group, the highest rates of kin loss would be for grandparents and parents. The increasing rate of grandparental loss over time, along with a similar trend for great-grandparents, could relate to increasing life expectancies during this period: as grandparents live to older ages, the chance that this loss would be experienced even earlier diminishes. 
+These results show us how rates of parental loss have changed for women over time: as we would expect for this age group, the highest rates of kin loss would be for grandparents and parents. The increasing rate of grandparental loss over time, along with a similar trend for great-grandparents, could relate to increasing life expectancies during this period: as grandparents live to older ages, the chance that an individual aged 25-39 has a living grandparent increases. This is brought out in the next plot, which shows changes in kin availability (the share of the population with a living relative in the year prior) over time.
+
+```{r}
+#Plot changes in kin availability
+kinloss_data %>% 
+ #Create plot
+  ggplot(aes(x = year, y = pc_withkin, color = kintype)) + 
+  geom_line() +
+  labs(x = "Year", 
+       y = "% of women aged 25-39 with a living relative in year (t-1)",
+       color = "Type of relative") +
+  #Fix the axes
+  scale_x_continuous(expand = c(0,0)) + 
+  scale_y_continuous(expand = c(0,0)) +
+  #Set a theme
+  theme_bw() 
+```
+
 
 **To discuss:** How do you think you could extend this analysis to look at other kin? What are you interested in learning about, and how do you think SOCSIM could help you in your work? 
 
