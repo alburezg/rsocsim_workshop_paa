@@ -109,7 +109,7 @@ nocite: |
 
 ## 2.2. Write the input rate files for a SOCSIM simulation for the USA, 1933-2020
 
-The structure of the rate files is essential to run SOCSIM. According to Socsim Oversimplified [c.f. @mason2016socsim, pp. 26-28 ], a rate block is a complete set of age speciﬁc rates governing a demographic event for people of a particular sex, group and marital status. In the rate files, the order is always event (birth, death, marriage), group (1, ..), sex (F or M), and marital status (married, single, divorced, widowed). For the birth rates, this can be followed by number indicating parity. Each subsequent line contains a one month rate or probability and the age interval over which it holds (years and months of the upper age bound). The interval includes the upper age bound in previous line and ends just before the upper age bound in current line. The first two numbers are years and months of the upper age bound, which are added together, e.g. upper age bound of "1 0" or "0 12" refers to the first year of life [0,1). 
+The structure of the rate files is essential to run SOCSIM. According to Socsim Oversimplified [c.f. @mason2016socsim, pp. 26-28], a rate block is a complete set of age speciﬁc rates governing a demographic event for people of a particular sex, group and marital status. In the rate files, the order is always event (birth, death, marriage), group (1, ..), sex (F or M), and marital status (married, single, divorced, widowed). For the birth rates, this can be followed by number indicating parity. Each subsequent line contains a one month rate or probability and the age interval over which it holds (years and months of the upper age bound). The interval includes the upper age bound in previous line and ends just before the upper age bound in current line. The first two numbers are years and months of the upper age bound, which are added together, e.g. upper age bound of "1 0" or "0 12" refers to the first year of life [0,1). 
 
 Let's load some functions we prepared to write SOCSIM rate files from HFD and HMD.
 
@@ -124,7 +124,6 @@ For the input Age-Specific Female Fertility Rates, we keep the whole age range i
 
 To convert the HFD annual fertility rates to 'SOCSIM' monthly fertility rates, we assume that they are constant over the year and divide them by 12 months. The are identical for all marital status, but are specified for single and married women in the rate files. Other marital status (divorced, widowed, cohabiting) follow SOCSIM's rate default rules. 
 
-<!-- To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file USAasfrRR provided in this repository.  -->
 For this exercise, we will use Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (saved in `Input/asfrRR.txt`), downloaded from the [HFD website](https://www.humanfertility.org/).
 
 The function below converts HFD data to SOCSIM format following the procedure explained above. To run it, type the name of the country as used in HFD (here, "USA").
@@ -141,7 +140,6 @@ We use the probabilities of death (qx) by sex from from  [HMD](https://www.morta
 
 To convert the annual HMD probabilities to monthly 'SOCSIM' probabilities, we assume that the probability of dying is constant over the year and use the formula $1-(1-_nq_x)^{1/n}$ proposed by Kenneth Watcher [@wachter2014essential, p. 53]. For the open-ended age interval 110+, monthly probabilities are equal to 1/12. The probabilities of death are identical for all marital status of each sex, and are only specified for single women and single men in the rate files. Other marital status will follow SOCSIM's rate default rules. 
 
-<!-- To write the input mortality files, please download from the [HMD website](https://www.mortality.org/), the period life tables 1x1 (Age interval × Year interval) for females and males for the desired country, in our case the U.S.A. Please save them as a .txt files called ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you have problems downloading the data, you can use the files provided in this repository.  -->
 To write the input mortality files, please use the file `Input/ltfper_1x1.txt` (period life tables 1x1, Age interval × Year interval, for females and males for the U.S.A) downloaded from the [HMD website](https://www.mortality.org/).
 
 The function below converts HMD data to SOCSIM format following the procedure explained above. To run it, type the name of the country as used in HMD (here, "USA").
@@ -334,7 +332,7 @@ HFD <- HFD %>%
   group_by(year, age) %>%
   summarise(ASFR = mean(ASFR)) %>%
   ungroup() %>%
-  mutate(Source = "HFD", 
+  mutate(Source = "HFD/HMD", 
          Rate = "ASFR")
 
 # Wrangle SOCSIM data
@@ -386,7 +384,7 @@ HMD <- ltf %>%
   group_by(year, Sex, age) %>% 
   summarise(mx = mean(mx)) %>%
   ungroup() %>% 
-    mutate(Source = "HMD",
+    mutate(Source = "HFD/HMD",
            Rate = "ASMR")
 
 # Wrangle SOCSIM data
@@ -417,7 +415,7 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
   ggplot(aes(x = age, y = Estimate, group = interaction(year, Source)))+
   facet_wrap(. ~ Rate, scales = "free") + 
   geom_line(aes(colour = year, linetype = Source), linewidth = 1)+
-  scale_linetype_manual(values = c("HFD" = "solid", "HMD" = "solid","SOCSIM" = "11")) +
+  scale_linetype_manual(values = c("HFD/HMD" = "solid","SOCSIM" = "11")) +
   facetted_pos_scales(y = list(ASFR = scale_y_continuous(),
                                ASMR =  scale_y_continuous(trans = "log10")))+
   scale_x_discrete(guide = guide_axis(angle = 90)) +
