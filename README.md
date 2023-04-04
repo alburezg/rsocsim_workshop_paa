@@ -113,7 +113,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "/Users/mallikasnyder/socsim/socsim_sim_1031"
+    ## [1] "C:/Users/alburezgutierrez/socsim/socsim_sim_2158"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -150,23 +150,23 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9399 Brths:  12 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 3759 Fq:0 ti1: 0.2 ti2: 0.008170 0.5782
-    ## month:  800 PopLive: 10826 Brths:  24 Dths:   1 Mrgs:  9 Dvs:  0 Mq: 3811 Fq:0 ti1: 0.4 ti2: 0.009173 0.6316
-    ## month:  900 PopLive: 12235 Brths:  19 Dths:   1 Mrgs:  8 Dvs:  0 Mq: 3942 Fq:0 ti1: 0.6 ti2: 0.013420 0.8636
-    ## month: 1000 PopLive: 13444 Brths:  15 Dths:   2 Mrgs:  6 Dvs:  0 Mq: 4044 Fq:0 ti1: 0.8 ti2: 0.006619 0.4047
-    ## month: 1100 PopLive: 14284 Brths:  13 Dths:   7 Mrgs:  8 Dvs:  0 Mq: 4072 Fq:0 ti1: 0.9 ti2: 0.006867 0.4141
-    ## month: 1200 PopLive: 14635 Brths:  16 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3985 Fq:0 ti1: 1.2 ti2: 0.008564 0.5393
-    ## month: 1300 PopLive: 14510 Brths:   7 Dths:  15 Mrgs:  3 Dvs:  0 Mq: 3873 Fq:0 ti1: 1.4 ti2: 0.006960 0.4640
-    ## month: 1400 PopLive: 14130 Brths:   8 Dths:  21 Mrgs:  4 Dvs:  0 Mq: 3812 Fq:0 ti1: 1.5 ti2: 0.012509 0.8608
-    ## month: 1500 PopLive: 13533 Brths:  10 Dths:  14 Mrgs:  1 Dvs:  0 Mq: 3688 Fq:0 ti1: 1.8 ti2: 0.008535 0.6275
-    ## month: 1600 PopLive: 13087 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3628 Fq:0 ti1: 1.9 ti2: 0.006774 0.5146
-    ## month: 1700 PopLive: 12777 Brths:  18 Dths:  15 Mrgs:  7 Dvs:  0 Mq: 3495 Fq:0 ti1: 2.1 ti2: 0.008304 0.6798
-    ## month: 1800 PopLive: 12312 Brths:   5 Dths:  13 Mrgs:  1 Dvs:  0 Mq: 3401 Fq:0 ti1: 2.2 ti2: 0.005670 0.4902
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.4 ti2: 0.008000 0.5756
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.5 ti2: 0.010000 0.6608
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.7 ti2: 0.010000 0.6154
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.8 ti2: 0.005000 0.2926
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.0 ti2: 0.013000 0.7603
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.2 ti2: 0.007000 0.4375
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.4 ti2: 0.015000 0.9908
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.6 ti2: 0.009000 0.6414
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.8 ti2: 0.008000 0.5911
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 2.0 ti2: 0.009000 0.6972
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.1 ti2: 0.007000 0.5929
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.3 ti2: 0.012000 1.1188
     ## 
     ## 
     ## Socsim Main Done
     ## Socsim Done.
-    ## [1] "restore previous working dir: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa"
+    ## [1] "restore previous working dir: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa"
 
     ## [1] 1
 
@@ -268,8 +268,6 @@ rates, we assume that they are constant over the year and divide them by
 for single and married women in the rate files. Other marital status
 (divorced, widowed, cohabiting) follow SOCSIM’s rate default rules.
 
-<!-- To write the input fertility files, please download from the [HFD website](https://www.humanfertility.org/), the Period Age-specific fertility rates all birth orders combined, by calendar year and age for the desired country (asfrRR), in our case the U.S.A. Please save it as a .txt file called USAasfrRR.txt in the same project folder. If you have problems downloading the data, you can use the file USAasfrRR provided in this repository.  -->
-
 For this exercise, we will use Period Age-specific fertility rates all
 birth orders combined, by calendar year and age for the desired country
 (saved in `Input/asfrRR.txt`), downloaded from the [HFD
@@ -306,8 +304,6 @@ open-ended age interval 110+, monthly probabilities are equal to 1/12.
 The probabilities of death are identical for all marital status of each
 sex, and are only specified for single women and single men in the rate
 files. Other marital status will follow SOCSIM’s rate default rules.
-
-<!-- To write the input mortality files, please download from the [HMD website](https://www.mortality.org/), the period life tables 1x1 (Age interval × Year interval) for females and males for the desired country, in our case the U.S.A. Please save them as a .txt files called ltfper_1x1.txt and ltmper_1x1.txt in the same project folder. If you have problems downloading the data, you can use the files provided in this repository.  -->
 
 To write the input mortality files, please use the file
 `Input/ltfper_1x1.txt` (period life tables 1x1, Age interval × Year
@@ -396,7 +392,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -404,7 +400,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
 Let’s have a glimpse on the simulated population and marriage files.
 
@@ -418,20 +414,20 @@ of father (pop), person id of next eldest sibling through mother
 person id of last born child (lborn), id of most recent marriage in
 .omar ﬁle (marid), marital status at end of simulation (mstat), date of
 death (dod, or 0 if alive at end of simulation) and fertility multiplier
-(fmult). For more information on what these columns are, see: 
-https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
+(fmult). For more information on what these columns are, see:
+<https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf>.
 
 ``` r
 head(opop)
 ```
 
-    ##   pid fem group nev  dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
-    ## 1   1   0     1  65 1059   0   0      0      0     0     0     1 2012 0.000000
-    ## 2   2   1     1  65  958   0   0      0      0 22255  1814     3 2018 1.767931
-    ## 3   3   0     1  65 1091   0   0      0      0 30847  3472     3 1804 0.000000
-    ## 4   4   0     1  65  906   0   0      0      0 24593  1278     4 1368 0.000000
-    ## 5   5   1     1  65  669   0   0      0      0     0     0     1 1850 0.706973
-    ## 6   6   1     1  65  637   0   0      0      0     0     0     1 1273 1.581888
+    ##   pid fem group nev dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
+    ## 1   1   1     1  65 795   0   0      0      0     0     0     1 1707 0.172002
+    ## 2   2   0     1  65 712   0   0      0      0     0     0     1 1530 0.000000
+    ## 3   3   0     1  65 648   0   0      0      0     0     0     1 1489 0.000000
+    ## 4   4   0     1  65 774   0   0      0      0     0     0     1 1668 0.000000
+    ## 5   5   0     1  65 921   0   0      0      0 25293  3357     4 1565 0.000000
+    ## 6   6   1     1  65 640   0   0      0      0     0     0     1 1515 0.605228
 
 The marriage file (.omar) contains one record for each marriage. Each
 marriage record provides the following information: marriage id number
@@ -446,12 +442,12 @@ head(omar)
 ```
 
     ##   mid  wpid  hpid dstart dend rend wprior hprior
-    ## 1   1 18809 17828   1201 1650    3      0      0
-    ## 2   2 13841  6348   1201 1622    3      0      0
-    ## 3   3  5454  1979   1201 1936    3      0      0
-    ## 4   4 18311 16892   1201 1477    3      0      0
-    ## 5   5 19359 13920   1201 1204    3      0      0
-    ## 6   6  5289 15034   1201 1722    3      0      0
+    ## 1   1  4015  3459   1201 1506    3      0      0
+    ## 2   2 10332  8946   1201 1648    3      0      0
+    ## 3   3 16833 11431   1201 1790    3      0      0
+    ## 4   4   989  8975   1201 1766    3      0      0
+    ## 5   5 14006 14085   1201 1542    3      0      0
+    ## 6   6  1439   667   1201 1733    3      0      0
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -579,7 +575,7 @@ HFD <- HFD %>%
   group_by(year, age) %>%
   summarise(ASFR = mean(ASFR)) %>%
   ungroup() %>%
-  mutate(Source = "HFD", 
+  mutate(Source = "HFD/HMD", 
          Rate = "ASFR")
 
 # Wrangle SOCSIM data
@@ -630,7 +626,7 @@ HMD <- ltf %>%
   group_by(year, Sex, age) %>% 
   summarise(mx = mean(mx)) %>%
   ungroup() %>% 
-    mutate(Source = "HMD",
+    mutate(Source = "HFD/HMD",
            Rate = "ASMR")
 
 # Wrangle SOCSIM data
@@ -660,7 +656,7 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
   ggplot(aes(x = age, y = Estimate, group = interaction(year, Source)))+
   facet_wrap(. ~ Rate, scales = "free") + 
   geom_line(aes(colour = year, linetype = Source), linewidth = 1)+
-  scale_linetype_manual(values = c("HFD" = "solid", "HMD" = "solid","SOCSIM" = "11")) +
+  scale_linetype_manual(values = c("HFD/HMD" = "solid","SOCSIM" = "11")) +
   facetted_pos_scales(y = list(ASFR = scale_y_continuous(),
                                ASMR =  scale_y_continuous(trans = "log10")))+
   scale_x_discrete(guide = guide_axis(angle = 90)) +
@@ -752,7 +748,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -760,7 +756,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: C:/cloud2/_static/Conferences, symposiums, presentations, courses/20230412-15_PAA_new_orleans/workshop-socsim/7_materials/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
 ``` r
 #Parameters specific to this simulation: will need to be changed
@@ -924,8 +920,8 @@ kinloss_data %>%
 
 <img src="README_files/figure-gfm/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
-**To discuss:** What are you interested in learning about, and how do you
-think SOCSIM could help you in your work?
+**To discuss:** What are you interested in learning about, and how do
+you think SOCSIM could help you in your work?
 
 # 4. Learn more
 
@@ -938,7 +934,7 @@ website: <https://mpidr.github.io/rsocsim/>, including documentation for
 the functions currently available and work in progress.
 
 We are working on preparing extended vignettes with exercises and
-examples for using `rsocsim`. Follow us on twitter for updates. Pleas
+examples for using `rsocsim`. Follow us on twitter for updates. Please
 also get in touch if you’d like to use `rsocsim` for your work; we want
 to hear from you!
 
@@ -946,6 +942,7 @@ to hear from you!
 - Diego Alburez: <https://twitter.com/d_alburez>
 - Liliana P. Calderón-Bernal, <https://twitter.com/lp_calderonb>
 - Mallika Snyder: <https://twitter.com/mallika_snyder>
+- Emilio Zagheni: <https://twitter.com/ezagheni>
 
 # References
 

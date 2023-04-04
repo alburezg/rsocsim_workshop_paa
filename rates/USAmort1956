@@ -3,7 +3,7 @@
 * Max Planck Institute for Demographic Research (Germany), 
 * University of California, Berkeley (USA), 
 * and French Institute for Demographic Studies (France) 
-* Data downloaded on  04 Apr 2023 08:22:26 PDT 
+* Data downloaded on  04 Apr 2023 20:02:40 CEST 
 ** NB: The original HMD annual probabilities have been converted into monthly probabilities 
 ** The open age interval (110+) is limited to one year [110-111) 
 
@@ -189,7 +189,7 @@ death 1 M single
 66 0 0.00296194559497831 
 67 0 0.00316967803574364 
 68 0 0.00336318507302258 
-69 0 0.00360305021569418 
+69 0 0.00360305021569407 
 70 0 0.00382182002678944 
 71 0 0.00413526796964614 
 72 0 0.00446293437385614 
