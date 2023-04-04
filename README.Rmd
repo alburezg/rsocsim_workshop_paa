@@ -224,7 +224,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
 
 Let's have a glimpse on the simulated population and marriage files. 
 
-The population file (.opop) contains one record for each individual who was ever alive during the simulation. Each record (row) provides the following information for a given individual: person id (pid), sex (fem, 1 for female and 0 for male), group identifier (group), next scheduled event (nev), date of birth (dob), person id of mother (mom), person id of father (pop), person id of next eldest sibling through mother (nesibm), person id of next eldest sibling through father (nesibp), person id of last born child (lborn), id of most recent marriage in .omar ﬁle (marid), marital status at end of simulation (mstat), date of death (dod, or 0 if alive at end of simulation) and fertility multiplier (fmult). 
+The population file (.opop) contains one record for each individual who was ever alive during the simulation. Each record (row) provides the following information for a given individual: person id (pid), sex (fem, 1 for female and 0 for male), group identifier (group), next scheduled event (nev), date of birth (dob), person id of mother (mom), person id of father (pop), person id of next eldest sibling through mother (nesibm), person id of next eldest sibling through father (nesibp), person id of last born child (lborn), id of most recent marriage in .omar ﬁle (marid), marital status at end of simulation (mstat), date of death (dod, or 0 if alive at end of simulation) and fertility multiplier (fmult). For more information on what these columns are, see: https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf. 
 
 ```{r opop}
 head(opop)

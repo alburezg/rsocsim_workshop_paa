@@ -418,7 +418,8 @@ of father (pop), person id of next eldest sibling through mother
 person id of last born child (lborn), id of most recent marriage in
 .omar ﬁle (marid), marital status at end of simulation (mstat), date of
 death (dod, or 0 if alive at end of simulation) and fertility multiplier
-(fmult).
+(fmult). For more information on what these columns are, see: 
+https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf.
 
 ``` r
 head(opop)
