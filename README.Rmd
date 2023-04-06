@@ -507,7 +507,7 @@ pid_data <- opop %>%
   mutate(age = year_of_interest - dob_year) %>%
   #Filter to women aged 25-39
   filter(data.table::between(lower = 25, upper = 39, age, 
-                             incbounds = FALSE))
+                             incbounds = TRUE))
 #Find vector of person IDs
 pid_vec <- pid_data$pid
 
