@@ -113,7 +113,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "/Users/mallikasnyder/socsim/socsim_sim_3612"
+    ## [1] "C:/Users/calderonbernal/socsim/socsim_sim_8792"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -150,23 +150,23 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9399 Brths:  12 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 3759 Fq:0 ti1: 0.2 ti2: 0.007276 0.5149
-    ## month:  800 PopLive: 10826 Brths:  24 Dths:   1 Mrgs:  9 Dvs:  0 Mq: 3811 Fq:0 ti1: 0.4 ti2: 0.007681 0.5289
-    ## month:  900 PopLive: 12235 Brths:  19 Dths:   1 Mrgs:  8 Dvs:  0 Mq: 3942 Fq:0 ti1: 0.5 ti2: 0.009959 0.6409
-    ## month: 1000 PopLive: 13444 Brths:  15 Dths:   2 Mrgs:  6 Dvs:  0 Mq: 4044 Fq:0 ti1: 0.7 ti2: 0.006381 0.3902
-    ## month: 1100 PopLive: 14284 Brths:  13 Dths:   7 Mrgs:  8 Dvs:  0 Mq: 4072 Fq:0 ti1: 0.8 ti2: 0.006862 0.4138
-    ## month: 1200 PopLive: 14635 Brths:  16 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3985 Fq:0 ti1: 1.0 ti2: 0.007056 0.4443
-    ## month: 1300 PopLive: 14510 Brths:   7 Dths:  15 Mrgs:  3 Dvs:  0 Mq: 3873 Fq:0 ti1: 1.1 ti2: 0.006300 0.4200
-    ## month: 1400 PopLive: 14130 Brths:   8 Dths:  21 Mrgs:  4 Dvs:  0 Mq: 3812 Fq:0 ti1: 1.3 ti2: 0.008229 0.5663
-    ## month: 1500 PopLive: 13533 Brths:  10 Dths:  14 Mrgs:  1 Dvs:  0 Mq: 3688 Fq:0 ti1: 1.5 ti2: 0.006600 0.4852
-    ## month: 1600 PopLive: 13087 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3628 Fq:0 ti1: 1.6 ti2: 0.006864 0.5215
-    ## month: 1700 PopLive: 12777 Brths:  18 Dths:  15 Mrgs:  7 Dvs:  0 Mq: 3495 Fq:0 ti1: 1.7 ti2: 0.007532 0.6166
-    ## month: 1800 PopLive: 12312 Brths:   5 Dths:  13 Mrgs:  1 Dvs:  0 Mq: 3401 Fq:0 ti1: 1.8 ti2: 0.004887 0.4225
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.007000 0.5037
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.4 ti2: 0.008000 0.5287
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.6 ti2: 0.006000 0.3693
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.7 ti2: 0.006000 0.3511
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 0.9 ti2: 0.008000 0.4679
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.0 ti2: 0.006000 0.3750
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.2 ti2: 0.008000 0.5284
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.4 ti2: 0.008000 0.5701
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.6 ti2: 0.009000 0.6649
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.7 ti2: 0.008000 0.6197
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 1.9 ti2: 0.007000 0.5929
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.0 ti2: 0.008000 0.7459
     ## 
     ## 
     ## Socsim Main Done
     ## Socsim Done.
-    ## [1] "restore previous working dir: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa"
+    ## [1] "restore previous working dir: U:/SOCSIM/rsocsim_workshop_paa"
 
     ## [1] 1
 
@@ -392,7 +392,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -400,7 +400,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
 Let’s have a glimpse on the simulated population and marriage files.
 
@@ -422,12 +422,12 @@ head(opop)
 ```
 
     ##   pid fem group nev  dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
-    ## 1   1   1     1  65 1009   0   0      0      0 26579  1005     4 1593 1.767931
-    ## 2   2   0     1  65 1179   0   0      0      0     0     0     1 2062 0.000000
-    ## 3   3   1     1  65  956   0   0      0      0 26205   625     4 1795 0.706973
-    ## 4   4   0     1  65  641   0   0      0      0     0     0     1 1349 0.000000
-    ## 5   5   0     1  65 1015   0   0      0      0 25201  2810     3 1938 0.000000
-    ## 6   6   1     1  65  797   0   0      0      0 22412   526     3 1555 1.581888
+    ## 1   1   1     1  65  699   0   0      0      0     0     0     1 1502 0.172002
+    ## 2   2   0     1  65 1070   0   0      0      0     0     0     1 1880 0.000000
+    ## 3   3   1     1  65  857   0   0      0      0 23335  2414     3 1715 0.605228
+    ## 4   4   0     1  65  859   0   0      0      0 23000  2233     4 1752 0.000000
+    ## 5   5   1     1  65 1152   0   0      0      0 23947  2705     4 1820 0.701332
+    ## 6   6   0     1  65 1069   0   0      0      0 28769  4770     3 2135 0.000000
 
 The marriage file (.omar) contains one record for each marriage. Each
 marriage record provides the following information: marriage id number
@@ -442,12 +442,12 @@ head(omar)
 ```
 
     ##   mid  wpid  hpid dstart dend rend wprior hprior
-    ## 1   1  4473 11649   1201 1810    3      0      0
-    ## 2   2  3418  1865   1201 1358    3      0      0
-    ## 3   3  3569 11595   1201 1660    3      0      0
-    ## 4   4 17771  3043   1201 1451    3      0      0
-    ## 5   5  5388 17305   1201 1765    3      0      0
-    ## 6   6 11717    33   1201 1402    3      0      0
+    ## 1   1  4254 14055   1201 1535    3      0      0
+    ## 2   2 12169  2424   1201 1680    3      0      0
+    ## 3   3 19824 14932   1201 1565    3      0      0
+    ## 4   4  6919  5970   1201 1514    3      0      0
+    ## 5   5 12475 11182   1201 1609    3      0      0
+    ## 6   6  1628 12760   1201 1700    3      0      0
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -748,7 +748,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -756,7 +756,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: /Users/mallikasnyder/Desktop/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
 
 ``` r
 #Parameters specific to this simulation: will need to be changed

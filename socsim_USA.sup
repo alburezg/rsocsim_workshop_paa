@@ -8,14 +8,13 @@
 ***************************************************************************
 segments  89
 input_file presim
-execute "touch presim.omar"
 
 bint 12
 hetfert 1
 marriage_queues 1
 marriage_eval distribution
 marriage_after_childbirth 1 
-random_father 1
+random_father 0
 
 ***********************************************************************
 * Pre-simulation (100 years) to get stable population at 31-12-1932
