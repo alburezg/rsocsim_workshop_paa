@@ -1,21 +1,15 @@
 Demographic microsimulations in R using SOCSIM: Modelling population and
 kinship dynamics
 ================
-A Member Initiated Meeting at the 2023 Meeting of the Population
-Association of America (PAA); New Orleans, Apr 12, 2023
+Paris, INED, June 19, 2024
 
-- <a href="#1-setup" id="toc-1-setup">1. Setup</a>
-- <a
-  href="#2-running-a-simulation-and-retrieving-the-input-demographic-rates"
-  id="toc-2-running-a-simulation-and-retrieving-the-input-demographic-rates">2.
-  Running a simulation and retrieving the input demographic rates</a>
-- <a
-  href="#3-what-can-you-do-with-simulation-output-example-estimates-of-bereavement"
-  id="toc-3-what-can-you-do-with-simulation-output-example-estimates-of-bereavement">3.
-  What can you do with simulation output? Example: estimates of
-  bereavement</a>
-- <a href="#4-learn-more" id="toc-4-learn-more">4. Learn more</a>
-- <a href="#references" id="toc-references">References</a>
+- [1. Setup](#1-setup)
+- [2. Running a simulation and retrieving the input demographic
+  rates](#2-running-a-simulation-and-retrieving-the-input-demographic-rates)
+- [3. What can you do with simulation output? Example: estimates of
+  bereavement](#3-what-can-you-do-with-simulation-output-example-estimates-of-bereavement)
+- [4. Learn more](#4-learn-more)
+- [References](#references)
 
 ## Introduction: What is SOCSIM and how does it work?
 
@@ -113,7 +107,7 @@ rsocsim::socsim(folder,supfile,seed)
 ```
 
     ## [1] "Start run1simulationwithfile"
-    ## [1] "C:/Users/calderonbernal/socsim/socsim_sim_8792"
+    ## [1] "C:/Users/theile/socsim/socsim_sim_3017"
     ## [1] "300"
     ## Start socsim
     ## start socsim main. MAXUYEARS: 200; MAXUMONTHS: 2400
@@ -150,23 +144,23 @@ rsocsim::socsim(folder,supfile,seed)
     ## Starting month is 601
     ## Initial size of pop 8000  (living: 8000)
     ## ------------aa3s------------aa32New events generated for all living persons
-    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.3 ti2: 0.007000 0.5037
-    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.4 ti2: 0.008000 0.5287
-    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 0.6 ti2: 0.006000 0.3693
-    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 0.7 ti2: 0.006000 0.3511
-    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 0.9 ti2: 0.008000 0.4679
-    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.0 ti2: 0.006000 0.3750
-    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.2 ti2: 0.008000 0.5284
-    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 1.4 ti2: 0.008000 0.5701
-    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 1.6 ti2: 0.009000 0.6649
-    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 1.7 ti2: 0.008000 0.6197
-    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 1.9 ti2: 0.007000 0.5929
-    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.0 ti2: 0.008000 0.7459
+    ## ------------b1month:  700 PopLive:  9414 Brths:  16 Dths:   0 Mrgs: 11 Dvs:  0 Mq: 3728 Fq:0 ti1: 0.5 ti2: 0.010000 0.7195
+    ## month:  800 PopLive: 10926 Brths:  12 Dths:   1 Mrgs:  6 Dvs:  0 Mq: 3890 Fq:0 ti1: 0.7 ti2: 0.014000 0.9252
+    ## month:  900 PopLive: 12260 Brths:  14 Dths:   0 Mrgs:  4 Dvs:  0 Mq: 4031 Fq:0 ti1: 1.0 ti2: 0.008000 0.4923
+    ## month: 1000 PopLive: 13397 Brths:   9 Dths:   2 Mrgs:  4 Dvs:  0 Mq: 4134 Fq:0 ti1: 1.2 ti2: 0.007000 0.4096
+    ## month: 1100 PopLive: 14172 Brths:  16 Dths:   6 Mrgs:  6 Dvs:  0 Mq: 4135 Fq:0 ti1: 1.4 ti2: 0.009000 0.5264
+    ## month: 1200 PopLive: 14518 Brths:  13 Dths:  11 Mrgs:  6 Dvs:  0 Mq: 4000 Fq:0 ti1: 1.6 ti2: 0.007000 0.4375
+    ## month: 1300 PopLive: 14323 Brths:  14 Dths:  20 Mrgs:  4 Dvs:  0 Mq: 3891 Fq:0 ti1: 1.8 ti2: 0.011000 0.7266
+    ## month: 1400 PopLive: 13816 Brths:  13 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3746 Fq:0 ti1: 2.0 ti2: 0.007000 0.4988
+    ## month: 1500 PopLive: 13330 Brths:  11 Dths:  11 Mrgs:  5 Dvs:  0 Mq: 3679 Fq:0 ti1: 2.2 ti2: 0.009000 0.6649
+    ## month: 1600 PopLive: 12944 Brths:  10 Dths:  15 Mrgs:  4 Dvs:  0 Mq: 3593 Fq:0 ti1: 2.4 ti2: 0.007000 0.5422
+    ## month: 1700 PopLive: 12525 Brths:  10 Dths:  20 Mrgs:  5 Dvs:  0 Mq: 3436 Fq:0 ti1: 2.5 ti2: 0.007000 0.5929
+    ## month: 1800 PopLive: 12009 Brths:  10 Dths:  16 Mrgs:  7 Dvs:  0 Mq: 3275 Fq:0 ti1: 2.7 ti2: 0.014000 1.3053
     ## 
     ## 
     ## Socsim Main Done
     ## Socsim Done.
-    ## [1] "restore previous working dir: U:/SOCSIM/rsocsim_workshop_paa"
+    ## [1] "restore previous working dir: U:/Cloud/2024-EDSD-Course-Materials-Web-and-social-media-data/07 microsimulation rsocsim"
 
     ## [1] 1
 
@@ -196,7 +190,7 @@ library(data.table)
 
 # 2. Running a simulation and retrieving the input demographic rates
 
-> Instructor: Liliana P. Calderón-Bernal,
+> original author: Liliana P. Calderón-Bernal,
 > <https://twitter.com/lp_calderonb>
 
 ### Objectives
@@ -392,7 +386,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: U:/Cloud/2024-EDSD-Course-Materials-Web-and-social-media-data/07 microsimulation rsocsim/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -400,7 +394,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: U:/Cloud/2024-EDSD-Course-Materials-Web-and-social-media-data/07 microsimulation rsocsim/sim_results_socsim_USA.sup_120423_/result.omar"
 
 Let’s have a glimpse on the simulated population and marriage files.
 
@@ -422,12 +416,12 @@ head(opop)
 ```
 
     ##   pid fem group nev  dob mom pop nesibm nesibp lborn marid mstat  dod    fmult
-    ## 1   1   1     1  65  699   0   0      0      0     0     0     1 1502 0.172002
-    ## 2   2   0     1  65 1070   0   0      0      0     0     0     1 1880 0.000000
-    ## 3   3   1     1  65  857   0   0      0      0 23335  2414     3 1715 0.605228
-    ## 4   4   0     1  65  859   0   0      0      0 23000  2233     4 1752 0.000000
-    ## 5   5   1     1  65 1152   0   0      0      0 23947  2705     4 1820 0.701332
-    ## 6   6   0     1  65 1069   0   0      0      0 28769  4770     3 2135 0.000000
+    ## 1   1   1     1  65  959   0   0      0      0 24756  3092     4 1721 0.172002
+    ## 2   2   0     1  65  659   0   0      0      0     0     0     1 1381 0.000000
+    ## 3   3   1     1  65 1061   0   0      0      0     0     0     1 1938 0.605228
+    ## 4   4   1     1  65 1185   0   0      0      0     0     0     1 1423 0.701332
+    ## 5   5   0     1  65  769   0   0      0      0     0     0     1 1497 0.000000
+    ## 6   6   1     1  65  951   0   0      0      0     0     0     1 1686 0.134275
 
 The marriage file (.omar) contains one record for each marriage. Each
 marriage record provides the following information: marriage id number
@@ -442,12 +436,12 @@ head(omar)
 ```
 
     ##   mid  wpid  hpid dstart dend rend wprior hprior
-    ## 1   1  4254 14055   1201 1535    3      0      0
-    ## 2   2 12169  2424   1201 1680    3      0      0
-    ## 3   3 19824 14932   1201 1565    3      0      0
-    ## 4   4  6919  5970   1201 1514    3      0      0
-    ## 5   5 12475 11182   1201 1609    3      0      0
-    ## 6   6  1628 12760   1201 1700    3      0      0
+    ## 1   1 15122 16053   1201 1513    3      0      0
+    ## 2   2 18039 16260   1201 1912    3      0      0
+    ## 3   3 10209  4466   1201 1503    3      0      0
+    ## 4   4 18308  4771   1201 1670    3      0      0
+    ## 5   5   235  8291   1201 1724    3      0      0
+    ## 6   6  2938  6983   1201 1805    3      0      0
 
 ## 2.5. Estimate age-specific rates from the SOCSIM microsimulation
 
@@ -669,7 +663,7 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
 
 # 3. What can you do with simulation output? Example: estimates of bereavement
 
-> Instructor: Mallika Snyder, <https://twitter.com/mallika_snyder>
+> original author: Mallika Snyder, <https://twitter.com/mallika_snyder>
 
 ### Objectives
 
@@ -748,7 +742,7 @@ opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read population file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.opop"
+    ## [1] "read population file: U:/Cloud/2024-EDSD-Course-Materials-Web-and-social-media-data/07 microsimulation rsocsim/sim_results_socsim_USA.sup_120423_/result.opop"
 
 ``` r
 ## Read the omar file using the read_opop function
@@ -756,7 +750,7 @@ omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup",
                            seed = "120423", suffix = "",  fn = NULL)
 ```
 
-    ## [1] "read marriage file: U:/SOCSIM/rsocsim_workshop_paa/sim_results_socsim_USA.sup_120423_/result.omar"
+    ## [1] "read marriage file: U:/Cloud/2024-EDSD-Course-Materials-Web-and-social-media-data/07 microsimulation rsocsim/sim_results_socsim_USA.sup_120423_/result.omar"
 
 ``` r
 #Parameters specific to this simulation: will need to be changed
@@ -946,7 +940,8 @@ to hear from you!
 
 # References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
 
 <div id="ref-alburezgutierrez_sandwich_2021" class="csl-entry">
 
@@ -977,19 +972,20 @@ Berkeley.
 <div id="ref-HMD" class="csl-entry">
 
 HMD. Human Mortality Database. n.d. “<span class="nocase">Max Planck
-Institute for Demographic Research (Germany)</span> and <span
-class="nocase">University of California, Berkeley (USA)</span> and <span
-class="nocase">French Institute for Demographic Studies (France)</span>
-<span class="nocase">Available at www.mortality.org</span>.”
+Institute for Demographic Research (Germany)</span> and
+<span class="nocase">University of California, Berkeley (USA)</span> and
+<span class="nocase">French Institute for Demographic Studies
+(France)</span> <span class="nocase">Available at
+www.mortality.org</span>.”
 
 </div>
 
 <div id="ref-HFD" class="csl-entry">
 
 Human Fertility Database. n.d. “<span class="nocase">Max Planck
-Institute for Demographic Research (Germany)</span> and <span
-class="nocase">Vienna Institute of Demography (Austria)</span> <span
-class="nocase">Available at www.humanfertility.org</span>.”
+Institute for Demographic Research (Germany)</span> and
+<span class="nocase">Vienna Institute of Demography (Austria)</span>
+<span class="nocase">Available at www.humanfertility.org</span>.”
 
 </div>
 

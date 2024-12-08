@@ -1,6 +1,6 @@
 ---
 title: "Demographic microsimulations in R using SOCSIM: Modelling population and kinship dynamics"
-date: "A Member Initiated Meeting at the 2023 Meeting of the Population Association of America (PAA); New Orleans, Apr 12, 2023"
+date: "Paris, INED, December, 2024"
 output:
   github_document:
     pandoc_args: --webtex
@@ -41,7 +41,8 @@ Install the development version of `rsocsim` from GitHub (https://github.com/MPI
 
 ```{r, eval=FALSE}
 # remove.packages("rsocsim")
-# install.packages("devtools")
+install.packages("devtools")
+library(devtools)
 devtools::install_github("MPIDR/rsocsim")
 ```
 
@@ -89,7 +90,7 @@ library(data.table)
 
 # 2. Running a simulation and retrieving the input demographic rates
 
-> Instructor: Liliana P. Calderón-Bernal, https://twitter.com/lp_calderonb
+> original author: Liliana P. Calderón-Bernal, https://twitter.com/lp_calderonb
 
 ### Objectives
 
@@ -129,7 +130,7 @@ For this exercise, we will use Period Age-specific fertility rates all birth ord
 The function below converts HFD data to SOCSIM format following the procedure explained above. To run it, type the name of the country as used in HFD (here, "USA").
 
 ```{r write_HFD}
-write_socsim_rates_HFD(Country = "USA") 
+write_socsim_rates_HFD(Country = "USA")
 ```
 
 ### 2.2.2. Mortality files for SOCSIM
@@ -213,16 +214,24 @@ The simulation results are ready. We can use the `read_opop` and  `read_omar` fu
 
 ## Read the opop file using the read_opop function
 opop <- rsocsim::read_opop(folder = getwd(), supfile = "socsim_USA.sup", 
-                           seed = "120423", suffix = "",  fn = NULL)
+                           seed = seed , suffix = "",  fn = NULL)
 
 ## Read the omar file using the read_opop function
 omar <- rsocsim::read_omar(folder = getwd(), supfile = "socsim_USA.sup", 
-                           seed = "120423", suffix = "",  fn = NULL)
+                           seed = seed, suffix = "",  fn = NULL)
+```
+```{R}
+write.csv2(opop,"opop1.opop")
+write.csv2(omar,"omar1.opop")
+
+opop = read.csv2("opop1.opop")
+omar = read.csv2("omar1.opop")
+
 ```
 
 Let's have a glimpse on the simulated population and marriage files. 
 
-The population file (.opop) contains one record for each individual who was ever alive during the simulation. Each record (row) provides the following information for a given individual: person id (pid), sex (fem, 1 for female and 0 for male), group identifier (group), next scheduled event (nev), date of birth (dob), person id of mother (mom), person id of father (pop), person id of next eldest sibling through mother (nesibm), person id of next eldest sibling through father (nesibp), person id of last born child (lborn), id of most recent marriage in .omar ﬁle (marid), marital status at end of simulation (mstat), date of death (dod, or 0 if alive at end of simulation) and fertility multiplier (fmult). For more information on what these columns are, see: https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf. 
+The population file (.opop) contains one record for each individual who was ever alive during the simulation. Each record (row) provides the following information for a given individual: person id (pid), sex (fem, 1 for female and 0 for male), group identifier (group), next scheduled event (nev), date of birth (dob), person id of mother (mom), person id of father (pop), person id of next eldest sibling through mother (nesibm), person id of next eldest sibling through father (nesibp), person id of last born child (lborn), id of most recent marriage in .omar ﬁle (marid), marital status at end of simulation (mstat), date of death (dod, or 0 if alive at end of simulation) and fertility multiplier (fmult). For more information on what these columns are, see: https://github.com/MPIDR/rsocsim/blob/main/socsimOversimplified.pdf. 
 
 ```{r opop}
 head(opop)
@@ -428,7 +437,7 @@ bind_rows(HFD %>% rename(Estimate = ASFR),
 
 # 3. What can you do with simulation output? Example: estimates of bereavement
 
-> Instructor: Mallika Snyder, https://twitter.com/mallika_snyder
+> original author: Mallika Snyder, https://twitter.com/mallika_snyder
 
 ### Objectives
 
@@ -627,9 +636,9 @@ kinloss_data %>%
 
 # 4. Learn more
 
-The 'SOCSIM Oversimplified' manual written by Carl @mason2016socsim is a great starting point to learn more about how SOCSIM works: https://lab.demog.berkeley.edu/socsim/CurrentDocs/socsimOversimplified.pdf. 
+The 'SOCSIM Oversimplified' manual written by Carl @mason2016socsim is a great starting point to learn more about how SOCSIM works: https://github.com/MPIDR/rsocsim/blob/main/socsimOversimplified.pdf. 
 
-You can find more information about the `rsocsim` in the package's website: https://mpidr.github.io/rsocsim/, including documentation for the functions currently available and work in progress. 
+You can find more information about the `rsocsim` in the package's website: https://mpidr.github.io/rsocsim/  
 
 We are working on preparing extended vignettes with exercises and examples for using `rsocsim`. Follow us on twitter for updates. Please also get in touch if you'd like to use `rsocsim` for your work; we want to hear from you!
 
